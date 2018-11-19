@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <header>
+    <app-nav-bar></app-nav-bar>
+  </header>
+  <form class="mt-4">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput id="inputFirstName" required />
+          <mat-icon matSuffix>person_outline</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="form-group col-md-6">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput id="inputLastName" />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput id="inputEmail" required />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <!-- <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email"> -->
+      </div>
+      <div class="form-group col-md-6">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput id="inputPassword" required />
+          <mat-hint>Old and new passwords should not be the same.</mat-hint>
+        </mat-form-field>
+        <!-- <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password"> -->
+      </div>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="col-md-12" appearance="outline" color="primary">
+        <mat-label>Address 1</mat-label>
+        <input type="text" matInput id="inputAddress" placeholder="1234 Main St" required />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+      <!-- <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"> -->
+    </div>
+    <div class="form-group">
+      <mat-form-field class="col-md-12" appearance="outline" color="primary">
+        <mat-label>Address 2</mat-label>
+        <input type="text" matInput id="inputAddress2" placeholder="Apartment, studio, or floor" />
+      </mat-form-field>
+      <!-- <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"> -->
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>City</mat-label>
+          <input type="text" matInput id="inputCity" placeholder="Apartment, studio, or floor" required />
+          <mat-icon matSuffix>map</mat-icon>
+        </mat-form-field>
+        <!-- <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity"> -->
+      </div>
+      <div class="form-group col-md-4">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>State</mat-label>
+          <mat-select [(value)]="selected" required>
+            <mat-optgroup>
+              North America
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+        <!-- <label for="inputState">State</label>
+        <select id="inputState" class="form-control">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select> -->
+      </div>
+      <div class="form-group col-md-2">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Zip</mat-label>
+          <input type="number" matInput id="inputZip" placeholder="02118" required />
+        </mat-form-field>
+        <!-- <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip"> -->
+      </div>
+    </div>
+  </form>
+  <app-footer></app-footer>
+</div>
