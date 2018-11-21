@@ -1,0 +1,16 @@
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: contain;
+}
+
+/* Custom CSS for bootstrap card */
+/* .card{
+  max-width: 20rem;
+  width: 20rem;
+} */
+
+/* Custom CSS for material card. */
+.example-card {
+  height: inherit;
+  width: inherit;
+}

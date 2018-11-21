@@ -8,7 +8,9 @@ import {
   MatInputModule,
   MatSelectModule,
   MatIconModule,
-  MatCardModule, MatGridListModule, MatMenuModule
+  MatCardModule,
+  MatGridListModule,
+  MatMenuModule
 } from '@angular/material';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
