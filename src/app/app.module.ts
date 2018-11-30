@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Services imports.
+import { BigOvenServiceClient } from './services/big-oven.service.client';
+
 //Angular Material imports.
 import {
   MatSidenavModule,
@@ -10,10 +13,14 @@ import {
   MatIconModule,
   MatCardModule,
   MatGridListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatAutocompleteModule,
+  MatDialogModule
 } from '@angular/material';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +29,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +39,14 @@ import { LayoutModule } from '@angular/cdk/layout';
     HomePageComponent,
     NavBarComponent,
     FooterComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    RecipeCategoryComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
+  entryComponents: [
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +60,15 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCardModule,
     MatGridListModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    BigOvenServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

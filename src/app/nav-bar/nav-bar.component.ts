@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,10 +15,40 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   opened: boolean;
+  ingredientControl;
+  options: string[] = ["Option 1", "Option 2", "Option 3"];
 
-  constructor() { }
+  myControl = new FormControl();
+  filteredOptions: Observable<string[]>;
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '500px',
+      height: '350px'
+    });
+  }
+
+  openRegisterDialog(): void {
+    const dialogRef = this.dialog.open(RegisterComponent, {
+      width: '500px',
+      height: '350px'
+    });
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
 }

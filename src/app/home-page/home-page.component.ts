@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BigOvenServiceClient } from '../services/big-oven.service.client';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private recipeService: BigOvenServiceClient) { }
 
   ngOnInit() {
+    this.recipeService.searchRecipes("pasta").then((response) => {
+      console.log(response);
+    });
   }
 
 }
