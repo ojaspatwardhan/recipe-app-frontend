@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BigOvenServiceClient } from '../services/big-oven.service.client';
+import { UserServiceClient } from '../services/user.service.client';
 
 @Component({
   selector: 'app-home-page',
@@ -8,12 +9,10 @@ import { BigOvenServiceClient } from '../services/big-oven.service.client';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private recipeService: BigOvenServiceClient) { }
+  constructor(private recipeService: BigOvenServiceClient, private userService: UserServiceClient) { }
 
   ngOnInit() {
-    this.recipeService.searchRecipes("pasta").then((response) => {
-      console.log(response);
-    });
+    this.userService.registerUser("ojas", "ojas");
   }
 
 }
