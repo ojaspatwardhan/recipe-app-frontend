@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(username, password) {
-    
   }
 
   closeLoginDialog(): void {
