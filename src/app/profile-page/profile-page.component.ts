@@ -16,7 +16,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.userService.findProfile(this.userService.getUsername()).then((response) => {
-      console.log(response);
+      
     });
   }
 
