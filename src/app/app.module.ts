@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 //Services imports.
 import { BigOvenServiceClient } from './services/big-oven.service.client';
+import { UserServiceClient } from './services/user.service.client';
 
 //Angular Material imports.
 import {
@@ -67,7 +68,8 @@ import { RegisterComponent } from './register/register.component';
     MatDialogModule
   ],
   providers: [
-    BigOvenServiceClient
+    BigOvenServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })
