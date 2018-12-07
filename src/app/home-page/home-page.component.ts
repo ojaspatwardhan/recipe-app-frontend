@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BigOvenServiceClient } from '../services/big-oven.service.client';
 import { UserServiceClient } from '../services/user.service.client';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -9,10 +9,9 @@ import { UserServiceClient } from '../services/user.service.client';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private recipeService: BigOvenServiceClient, private userService: UserServiceClient) { }
+  constructor(private userService: UserServiceClient, private router: Router) { }
 
   ngOnInit() {
-    this.userService.registerUser("ojas", "ojas");
   }
 
 }

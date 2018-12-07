@@ -11,9 +11,7 @@ export class UserServiceClient {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(response => {
-      console.log(response.json);
-    }).catch(res => {
+    }).then(response => response.json()).catch(res => {
       console.log(res);
     });
   }
@@ -23,7 +21,7 @@ export class UserServiceClient {
       email: email
     };
     return fetch("http://localhost:4000/api/user/login", {
-      
+
     });
   }
 }
