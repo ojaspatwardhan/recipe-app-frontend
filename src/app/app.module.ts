@@ -42,6 +42,8 @@ import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
 import { MultipleRecipeDetailComponent } from './multiple-recipe-detail/multiple-recipe-detail.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     SanitizeHtmlPipePipe,
     MultipleRecipeDetailComponent,
     AdminPageComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
+    CreateUserComponent,
+    EditUserComponent
   ],
   entryComponents: [
     LoginComponent,
