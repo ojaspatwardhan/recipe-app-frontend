@@ -1,5 +1,5 @@
 export class User {
-  _id: ObjectId,
+  _id: String;
   username: String;
   password: String;
   email: String;

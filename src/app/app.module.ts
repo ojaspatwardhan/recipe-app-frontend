@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //Services imports.
-import { BigOvenServiceClient } from './services/big-oven.service.client';
+import { EdamamServiceClient } from './services/edamam.service.client';
 import { UserServiceClient } from './services/user.service.client';
 
 //Angular Material imports.
@@ -68,7 +68,7 @@ import { RegisterComponent } from './register/register.component';
     MatDialogModule
   ],
   providers: [
-    BigOvenServiceClient,
+    EdamamServiceClient,
     UserServiceClient
   ],
   bootstrap: [AppComponent]

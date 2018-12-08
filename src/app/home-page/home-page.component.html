@@ -9,16 +9,14 @@
       <header>
         <app-nav-bar></app-nav-bar>
       </header>
-      <div class="row my-4">
-        <!-- Testing mat-card in bootstrap masonry column layout -->
+      <br>
+      <!-- <div class="row my-4" *ngFor="let recipe of recipes; let i = index;">
         <div class="col-sm-4">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>{{recipes[i]recipe.label}}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
+            <img mat-card-image src = {{recipes[i].recipe.image}} alt="Photo of a Shiba Inu" />
             <mat-card-content>
               <p>
                 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -32,15 +30,13 @@
             </mat-card-actions>
           </mat-card>
         </div>
-        <!-- Testing mat-card in bootstrap masonry column layout -->
+
         <div class="col-sm-4">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>{{recipes[i+1].label}}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
+            <img mat-card-image src = {{recipes[i+1].recipe.image}} alt="Photo of a Shiba Inu" />
             <mat-card-content>
               <p>
                 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -54,6 +50,53 @@
             </mat-card-actions>
           </mat-card>
         </div>
+
+        <div class="col-sm-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{recipes[i+2].label}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src = {{recipes[i+2].recipe.image}} alt="Photo of a Shiba Inu" />
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        
+      
+      </div> -->
+
+      <div class="row card-group">
+          <div class="col-4"  *ngFor="let recipe of recipes; let i = index">
+              <mat-card class="example-card">
+                  <img mat-card-image src = {{recipes[i].recipe.image}} alt="Photo of a recipe" />
+                  <mat-card-content>
+                    <h6 class="foodTitle">{{recipes[i].recipe.label}}</h6>
+                      <hr>
+                      <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-4 infoText">Calories: <span>{{recipes[i].recipe.calories | number: '1.0-0'}}</span></div>
+                        <div class="col-1 verticalLine"></div>
+                        <div class="col-4 infoText">Ingredients: <span>{{recipes[i].recipe.ingredients.length}}</span></div>
+                        <div class="col-1"></div>
+                      </div>
+                      <hr>
+                  </mat-card-content>
+                  <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
+                <br>
+          </div>
       </div>
       <div class="footer">
         <app-footer></app-footer>
