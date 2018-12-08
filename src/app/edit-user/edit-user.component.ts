@@ -3,6 +3,8 @@ import { User } from '../models/user.model.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+declare var jquery:any;
+declare var $:any;
 
 @Component({
   selector: 'app-edit-user',

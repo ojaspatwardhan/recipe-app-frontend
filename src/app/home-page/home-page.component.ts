@@ -2,7 +2,6 @@ import { SpoonacularServiceClient } from './../services/spoonacular.service.clie
 import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router } from '@angular/router';
-import { SpoonacularServiceClient } from '../services/spoonacular.service.client';
 
 @Component({
   selector: 'app-home-page',
