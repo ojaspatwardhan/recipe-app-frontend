@@ -5,6 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,11 +18,12 @@ export class NavBarComponent implements OnInit {
   opened: boolean;
   ingredientControl;
   options: string[] = ["Option 1", "Option 2", "Option 3"];
+  enteredRecipeName: String;
 
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
@@ -49,6 +51,12 @@ export class NavBarComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  callDisplayRecipe(): void{
+    if(this.enteredRecipeName !== ""){
+      this.router.navigate(['/recipes', this.enteredRecipeName]);
+    }
   }
 
 }

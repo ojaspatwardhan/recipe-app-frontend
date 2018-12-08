@@ -16,5 +16,17 @@ export class SpoonacularServiceClient {
       headers: {"X-RapidAPI-Key": "d40a5fb0e6msh1957b3cdc0d3bbdp1785cfjsn2ce4b2e7c8bb"}
     }).then((response) => response.json());
   }
+
+  getRecipeInfo(id){
+    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"+id+"/summary", {
+      headers: {"X-RapidAPI-Key": "d40a5fb0e6msh1957b3cdc0d3bbdp1785cfjsn2ce4b2e7c8bb"}
+    }).then((response) => response.json());
+  }
+
+  getRecipesByName(name){
+    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query="+name, {
+      headers: {"X-RapidAPI-Key": "d40a5fb0e6msh1957b3cdc0d3bbdp1785cfjsn2ce4b2e7c8bb"}
+    }).then((response) => response.json());
+  }
 }
 

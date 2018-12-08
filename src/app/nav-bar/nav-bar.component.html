@@ -31,14 +31,14 @@
       <button class="mr-4" (click)="openLoginDialog()" type="button" mat-raised-button color="accent" name="login">Log in</button>
       <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button>
       <mat-form-field class="mr-sm-3" color="accent">
-        <input type="text" id="ingredientSearch" matInput placeholder="Ingredient" [formControl] = "myControl" [matAutocomplete]="auto" />
+        <input type="text" id="ingredientSearch" matInput placeholder="Search by Recipe" [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName"/>
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{ option }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <button mat-raised-button color="accent">Search</button>
+      <button mat-raised-button color="accent" (click) = "callDisplayRecipe()">Search</button>
       <!-- <input class="form-control mr-sm-2" type="search" placeholder="Ingredient Search" aria-label="Search" />
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     </form>

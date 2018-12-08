@@ -12,6 +12,7 @@ export class RecipeDetailComponent implements OnInit {
   nutriBody: any;
   retrievedRecipe: any;
   retrievedIngredients: any;
+  retrievedRecipeInfo: any;
   loaded: boolean;
 
   constructor(private recipeService: SpoonacularServiceClient, private route: ActivatedRoute, private router: Router) { }
@@ -21,7 +22,10 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.getRecipeById(this.route.snapshot.paramMap.get('id')).then((retrievedRecipe) => {
       this.retrievedRecipe = retrievedRecipe;
       this.retrievedIngredients = retrievedRecipe.extendedIngredients;
-      this.loaded = true; 
+      this.recipeService.getRecipeInfo(this.route.snapshot.paramMap.get('id')).then((retrievedRecipeInfo) => {
+        this.retrievedRecipeInfo = retrievedRecipeInfo;
+        this.loaded = true; 
+      });
     });
 
     this.recipeService.getNutritionByRecipe(this.route.snapshot.paramMap.get('id')).then((body) => {
