@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { UserServiceClient } from '../services/user.service.client';
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 
@@ -11,9 +12,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient, private router: Router, public dialogRef: MatDialogRef<LoginComponent>) { }
+  username: String;
+  password: String;
+
+  constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router, public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
+  }
+
+  login(username, password) {
+    this.userService.loginUser(username, password).then((user) => {
+      this.cookieService.set("username", user.username);
+      this.dialogRef.close();
+      this.router.navigate(['profile']);
+    });
   }
 
   closeLoginDialog(): void {
