@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //Services imports.
-import {SpoonacularServiceClient} from './services/spoonacular.service.client';
+import { SpoonacularServiceClient } from './services/spoonacular.service.client';
 import { UserServiceClient } from './services/user.service.client';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -40,6 +40,8 @@ import { RegisterComponent } from './register/register.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
 import { MultipleRecipeDetailComponent } from './multiple-recipe-detail/multiple-recipe-detail.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { MultipleRecipeDetailComponent } from './multiple-recipe-detail/multiple
     RegisterComponent,
     RecipeDetailComponent,
     SanitizeHtmlPipePipe,
-    MultipleRecipeDetailComponent
+    MultipleRecipeDetailComponent,
+    AdminPageComponent,
+    CreateRecipeComponent
   ],
   entryComponents: [
     LoginComponent,

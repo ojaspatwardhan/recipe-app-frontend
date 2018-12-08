@@ -9,4 +9,5 @@ export class User {
   city: String;
   state: String;
   zip: Number;
+  role: String;
 }
