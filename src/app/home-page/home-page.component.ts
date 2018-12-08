@@ -14,8 +14,12 @@ export class HomePageComponent implements OnInit {
   constructor(private userService: UserServiceClient, private router: Router, private edamamService: EdamamServiceClient) { }
 
   ngOnInit() {
-    this.edamamService.searchRecipes("chicken").then((recipes) => {
-      this.recipes = recipes.hits;
+    // this.edamamService.searchRecipes("chicken").then((recipes) => {
+    //   this.recipes = recipes.hits;
+    // });
+
+    this.edamamService.getRecipes().then((newRecipes) => {
+      this.recipes = newRecipes.recipes;
     });
   }
 }
