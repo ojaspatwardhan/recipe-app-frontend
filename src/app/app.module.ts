@@ -2,9 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //Services imports.
-import { EdamamServiceClient } from './services/edamam.service.client';
+import {SpoonacularServiceClient} from './services/spoonacular.service.client';
 import { UserServiceClient } from './services/user.service.client';
 import { CookieService } from 'ngx-cookie-service';
+
 
 //Angular Material imports.
 import {
@@ -17,7 +18,9 @@ import {
   MatGridListModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatDialogModule
+  MatDialogModule,
+  MatFormFieldModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
@@ -34,6 +37,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,9 @@ import { RegisterComponent } from './register/register.component';
     ProfilePageComponent,
     RecipeCategoryComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RecipeDetailComponent,
+    SanitizeHtmlPipePipe
   ],
   entryComponents: [
     LoginComponent,
@@ -66,10 +73,12 @@ import { RegisterComponent } from './register/register.component';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatExpansionModule
   ],
   providers: [
-    EdamamServiceClient,
+    SpoonacularServiceClient,
     UserServiceClient,
     CookieService
   ],
