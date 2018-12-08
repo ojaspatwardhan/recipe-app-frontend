@@ -52,12 +52,19 @@ export class UserServiceClient {
     }).then((response) => response.json());
   }
 
-  loginUser(email) {
+  loginUser(username, password) {
     const user = {
-      email: email
+      username: username,
+      password: password
     };
     return fetch("http://localhost:4000/api/user/login", {
-
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json()).catch((res) => {
+      console.log(res);
     });
   }
 }

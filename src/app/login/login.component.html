@@ -4,7 +4,7 @@
       <div class="form-group col-sm-12">
         <mat-form-field class="col-sm-12" appearance="outline" color="primary">
           <mat-label>Username</mat-label>
-          <input type="text" matInput id="inputFirstName" required />
+          <input type="text" [(ngModel)]="username" name="username" matInput id="inputFirstName" required />
           <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
       </div>
@@ -13,14 +13,14 @@
       <div class="form-group col-sm-12">
         <mat-form-field class="col-sm-12" appearance="outline" color="accent">
           <mat-label>Password</mat-label>
-          <input type="text" matInput id="inputFirstName" required />
+          <input type="password" [(ngModel)]="password" name="password" matInput id="inputPassword" required />
           <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-4">
-        <button class="ml-4" type="button" mat-raised-button color="accent" name="login">Log in</button>
+        <button class="ml-4" (click)="login(username, password)" type="button" mat-raised-button color="accent" name="login">Log in</button>
       </div>
       <div class="col-sm-4">
         <button class="ml-4" (click)="closeLoginDialog()" type="button" mat-raised-button color="warn" name="cancel">Cancel</button>
