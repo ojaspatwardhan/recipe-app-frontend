@@ -39,6 +39,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
     LoginComponent,
     RegisterComponent,
     RecipeDetailComponent,
-    SanitizeHtmlPipePipe
+    SanitizeHtmlPipePipe,
+    AdminPageComponent,
+    CreateRecipeComponent
   ],
   entryComponents: [
     LoginComponent,

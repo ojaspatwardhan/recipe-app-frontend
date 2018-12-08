@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
   {path: 'profile', component: ProfilePageComponent, runGuardsAndResolvers: 'always'},
   {path: 'profiles', component: ProfilePageComponent},
+  {path: 'admin-page', component: AdminPageComponent},
   {path: 'recipe/:id', component: RecipeDetailComponent},
   {path: '**', component: HomePageComponent}
 ];
