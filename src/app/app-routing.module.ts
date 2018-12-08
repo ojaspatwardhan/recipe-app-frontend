@@ -7,7 +7,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
-  {path: 'profile', component: ProfilePageComponent},
+  {path: 'profile', component: ProfilePageComponent, runGuardsAndResolvers: 'always'},
+  {path: 'profiles', component: ProfilePageComponent},
   {path: '**', component: HomePageComponent}
 ];
 

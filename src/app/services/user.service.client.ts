@@ -1,6 +1,15 @@
 export class UserServiceClient {
 
   private username: string;
+  private userId: any;
+
+  getUserId() {
+    return this.userId;
+  }
+
+  setUserId(id) {
+    this.userId = id;
+  }
 
   getUsername() {
     return this.username;
@@ -8,6 +17,17 @@ export class UserServiceClient {
 
   setUsername(username) {
     this.username = username;
+  }
+
+  updateUser(user) {
+    return fetch("http://localhost:4000/api/user/" + user._id, {
+      method: "PUT",
+      credentials: "include",
+      body: JSON.stringify(user),
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then((response) => response.json());
   }
 
   registerUser(username, password) {
@@ -21,7 +41,7 @@ export class UserServiceClient {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(response => response.json()).catch(res => {
+    }).then((response) => response.json()).catch(res => {
       console.log(res);
     });
   }

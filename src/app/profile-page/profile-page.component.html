@@ -7,14 +7,14 @@
       <div class="form-group col-md-6">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>First Name</mat-label>
-          <input type="text" matInput id="inputFirstName" required />
+          <input type="text" matInput id="inputFirstName" required [(ngModel)]="user.first_name" name="firstName" />
           <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
       </div>
       <div class="form-group col-md-6">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>Last Name</mat-label>
-          <input type="text" matInput id="inputLastName" />
+          <input type="text" matInput id="inputLastName" [(ngModel)]="user.last_name" name="lastName" />
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
       </div>
@@ -23,53 +23,43 @@
       <div class="form-group col-md-6">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>Email</mat-label>
-          <input type="email" matInput id="inputEmail" required />
+          <input type="email" matInput id="inputEmail" [(ngModel)]="user.email" name="email" required />
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
-        <!-- <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email"> -->
       </div>
       <div class="form-group col-md-6">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
-          <mat-label>Password</mat-label>
-          <input type="password" matInput id="inputPassword" required />
-          <mat-hint>Old and new passwords should not be the same.</mat-hint>
+          <mat-label>Username</mat-label>
+          <input type="text" matInput id="username" placeholder="e.g. abcxyzz" [(ngModel)]="user.username" name="username" />
+          <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
-        <!-- <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password"> -->
       </div>
     </div>
     <div class="form-group">
       <mat-form-field class="col-md-12" appearance="outline" color="primary">
         <mat-label>Address 1</mat-label>
-        <input type="text" matInput id="inputAddress" placeholder="1234 Main St" required />
+        <input type="text" matInput [(ngModel)]="user.address_1" name="address_1" id="inputAddress1" placeholder="1234 Main St" />
         <mat-icon matSuffix>home</mat-icon>
       </mat-form-field>
-      <!-- <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"> -->
     </div>
     <div class="form-group">
       <mat-form-field class="col-md-12" appearance="outline" color="primary">
         <mat-label>Address 2</mat-label>
-        <input type="text" matInput id="inputAddress2" placeholder="Apartment, studio, or floor" />
+        <input type="text" matInput id="inputAddress2" [(ngModel)]="user.address_2" name="address2" placeholder="Apartment, studio, or floor" />
       </mat-form-field>
-      <!-- <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"> -->
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>City</mat-label>
-          <input type="text" matInput id="inputCity" placeholder="Apartment, studio, or floor" required />
+          <input type="text" matInput [(ngModel)]="user.city" name="city" id="inputCity" placeholder="Apartment, studio, or floor" />
           <mat-icon matSuffix>map</mat-icon>
         </mat-form-field>
-        <!-- <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity"> -->
       </div>
       <div class="form-group col-md-4">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>State</mat-label>
-          <mat-select [(value)]="selected" required>
+          <mat-select [(value)]="selected" [(ngModel)]="user.state" name="state">
             <mat-optgroup>
               North America
               <mat-option value="option1">Option 1</mat-option>
@@ -78,20 +68,16 @@
             </mat-optgroup>
         </mat-select>
       </mat-form-field>
-        <!-- <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select> -->
       </div>
       <div class="form-group col-md-2">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>Zip</mat-label>
-          <input type="number" matInput id="inputZip" placeholder="02118" required />
+          <input type="number" matInput [(ngModel)]="user.zip" name="zip" id="inputZip" placeholder="02118" required />
         </mat-form-field>
-        <!-- <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip"> -->
       </div>
+    </div>
+    <div class="row">
+      <button mat-raised-button color="accent" class="col-md-12 my-4" (click) = "updateUser(user)">Update</button>
     </div>
   </form>
   <app-footer></app-footer>

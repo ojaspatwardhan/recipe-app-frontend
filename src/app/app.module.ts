@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 //Services imports.
 import { BigOvenServiceClient } from './services/big-oven.service.client';
 import { UserServiceClient } from './services/user.service.client';
+import { CookieService } from 'ngx-cookie-service';
 
 //Angular Material imports.
 import {
@@ -69,7 +70,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   providers: [
     BigOvenServiceClient,
-    UserServiceClient
+    UserServiceClient,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

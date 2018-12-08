@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile-page',
@@ -11,15 +12,24 @@ import { Router } from '@angular/router';
 export class ProfilePageComponent implements OnInit {
 
   user: User = new User();
+  username = "";
 
-  constructor(private userService: UserServiceClient, private router: Router) { }
+  constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router) { }
 
   ngOnInit() {
-    this.userService.findProfile(this.userService.getUsername()).then((response) => {
-      this.user = new User();
-      user._id = response._id;
-      user.username = response.username;
+    this.userService.findProfile(this.cookieService.get("username")).then((response) => {
+      console.log(this.cookieService.get("username"));
+      console.log(response + " " + "response");
+      this.user = response;
+    });
+  }
+
+  updateUser(user: User) {
+    this.userService.updateUser(user).then((user) => {
       console.log(user);
+      this.cookieService.set("username", user.username);
+      console.log(this.cookieService.get("username"));
+      location.reload();
     });
   }
 
