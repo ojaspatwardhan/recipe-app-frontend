@@ -10,73 +10,10 @@
         <app-nav-bar></app-nav-bar>
       </header>
       <br>
-      <!-- <div class="row my-4" *ngFor="let recipe of recipes; let i = index;">
-        <div class="col-sm-4">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <mat-card-title>{{recipes[i]recipe.label}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src = {{recipes[i].recipe.image}} alt="Photo of a Shiba Inu" />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-
-        <div class="col-sm-4">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <mat-card-title>{{recipes[i+1].label}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src = {{recipes[i+1].recipe.image}} alt="Photo of a Shiba Inu" />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-
-        <div class="col-sm-4">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <mat-card-title>{{recipes[i+2].label}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src = {{recipes[i+2].recipe.image}} alt="Photo of a Shiba Inu" />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-        
-      
-      </div> -->
 
       <div class="row card-group">
           <div class="col-4"  *ngFor="let recipe of recipes; let i = index">
-              <mat-card class="example-card">
+              <mat-card class="example-card" [routerLink] = "['/recipe',recipe.id]">
                   <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
                   <mat-card-content>
                     <h6 class="foodTitle">{{recipe.title}}</h6>
@@ -92,7 +29,6 @@
                   </mat-card-content>
                   <mat-card-actions>
                       <button mat-button>LIKE</button>
-                      <!-- <button mat-button><a class="moreBtn" href = "{{recipe.sourceUrl}}">MORE</a></button> -->
                       <a href = "{{recipe.sourceUrl}}" mat-button class="moreBtn">MORE</a>
                   </mat-card-actions>
                 </mat-card>

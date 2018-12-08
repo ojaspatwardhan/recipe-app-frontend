@@ -1,3 +1,4 @@
+import { SpoonacularServiceClient } from './../services/spoonacular.service.client';
 import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router } from '@angular/router';

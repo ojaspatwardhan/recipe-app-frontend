@@ -6,6 +6,7 @@ import { SpoonacularServiceClient } from './services/spoonacular.service.client'
 import { UserServiceClient } from './services/user.service.client';
 import { CookieService } from 'ngx-cookie-service';
 
+
 //Angular Material imports.
 import {
   MatSidenavModule,
@@ -17,7 +18,9 @@ import {
   MatGridListModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatDialogModule
+  MatDialogModule,
+  MatFormFieldModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
@@ -34,10 +37,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { RecipeCategoryComponent } from './recipe-category/recipe-category.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -49,10 +50,8 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     RecipeCategoryComponent,
     LoginComponent,
     RegisterComponent,
-    AdminPageComponent,
-    CreateUserComponent,
-    EditUserComponent,
-    CreateRecipeComponent
+    RecipeDetailComponent,
+    SanitizeHtmlPipePipe
   ],
   entryComponents: [
     LoginComponent,
@@ -74,7 +73,9 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatExpansionModule
   ],
   providers: [
     SpoonacularServiceClient,
