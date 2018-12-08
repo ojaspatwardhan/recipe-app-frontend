@@ -42,6 +42,7 @@ import { SanitizeHtmlPipePipe } from './sanitize-html-pipe.pipe';
 import { MultipleRecipeDetailComponent } from './multiple-recipe-detail/multiple-recipe-detail.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { RecipeServiceClient } from './services/recipe.service.client';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
   ],
   entryComponents: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
   providers: [
     SpoonacularServiceClient,
     UserServiceClient,
-    CookieService
+    CookieService,
+    RecipeServiceClient
   ],
   bootstrap: [AppComponent]
 })

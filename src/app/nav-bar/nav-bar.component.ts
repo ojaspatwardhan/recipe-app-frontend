@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { Router } from '@angular/router';
+import { CreateRecipeComponent } from '../create-recipe/create-recipe.component';
 
 
 @Component({
@@ -44,6 +45,13 @@ export class NavBarComponent implements OnInit {
     const dialogRef = this.dialog.open(RegisterComponent, {
       width: '500px',
       height: '350px'
+    });
+  }
+
+  openCreateRecipeDialog(): void {
+    const dialogRef = this.dialog.open(CreateRecipeComponent, {
+      width: '650px',
+      height: '500px'
     });
   }
 

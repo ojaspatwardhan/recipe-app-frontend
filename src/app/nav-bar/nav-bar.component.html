@@ -27,6 +27,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
+      <!-- Create Recipe dialog-->
+      <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
       <!-- Login & Register dialogs -->
       <button class="mr-4" (click)="openLoginDialog()" type="button" mat-raised-button color="accent" name="login">Log in</button>
       <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button>

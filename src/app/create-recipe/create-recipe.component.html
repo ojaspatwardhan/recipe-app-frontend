@@ -4,36 +4,43 @@
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
           <mat-label>Recipe name</mat-label>
-          <input id="recipeName" matInput />
+          <input id="recipeName" matInput [(ngModel)]="recipe.title" />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
           <mat-label>Ingredients - Please enter in the following format <small>(amount unit name,amount unit name) e.g 200 grams sugar</small></mat-label>
-          <textarea id="ingredients" matInput placeholder="Ingredients"></textarea>
+          <textarea id="ingredients" matInput placeholder="Ingredients" [(ngModel)]="recipe.extendedIngredients"></textarea>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
           <mat-label>Preparation Instructions</mat-label>
-          <textarea id="preparation" matInput placeholder="Textarea"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Created By</mat-label>
-          <input id="createdBy" matInput />
+          <textarea id="preparation" matInput placeholder="Textarea" [(ngModel)]="recipe.instructions"></textarea>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
           <mat-label>Ready in Minutes</mat-label>
-          <input id="readyInMinutes" type="email" matInput />
+          <input id="readyInMinutes" type="email" matInput [(ngModel)]="recipe.readyInMinutes"/>
         </mat-form-field>
       </div>
+      <div class="row">
+          <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+            <mat-label>Number of servings</mat-label>
+            <input id="servings" type="email" matInput [(ngModel)]="recipe.servings"/>
+          </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+              <mat-label>Created By</mat-label>
+              <input id="recipe.createdBy" matInput />
+            </mat-form-field>
+          </div>
     </div>
   </div>
   <div class="row">
-    <button mat-raised-button type="button" class="col-12 my-4" color="accent" (click)="createUserByAdmin(user)">Create</button>
+    <button mat-raised-button type="button" class="col-12 my-4" color="accent" 
+    (click)="createRecipe(recipe)">Create</button>
   </div>
 </div>
