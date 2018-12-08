@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Username</mat-label>
+          <input id="username" [(ngModel)]="user.username" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Password</mat-label>
+          <input id="password" [(ngModel)]="user.password" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>First Name</mat-label>
+          <input id="firstName" [(ngModel)]="user.first_name" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Last Name</mat-label>
+          <input id="lastName" [(ngModel)]="user.last_name" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Email</mat-label>
+          <input id="email" type="email" [(ngModel)]="user.email" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Address</mat-label>
+          <textarea id="address" matInput rows="3" [(ngModel)]="user.address_1" placeholder="Please type your address here"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Role</mat-label>
+          <input id="role" type="text" [(ngModel)]="user.role" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button mat-raised-button type="button" class="col-12 my-4" color="accent" (click)="createUserByAdmin(user)">Create</button>
+  </div>
+</div>

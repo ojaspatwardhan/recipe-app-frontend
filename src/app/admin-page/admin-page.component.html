@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <header>
+    <app-nav-bar></app-nav-bar>
+  </header>
+  <form class="form-inline my-2">
+    <input class="form-control col-4" name="appointment" [(ngModel)]="searchText" type="search" placeholder="Enter customer name with capitalization" />
+    <input class="form-control col-4 ml-2 mr-2" name="status" [(ngModel)]="statusText" type="search" placeholder="Enter appointment status e.g BK, CN, IN" />
+    <button type="button" class="btn btn-md btn-outline-dark ml-2" (click)="showCustomersModal()">Customers</button>
+    <button type="button" class="btn btn-md btn-outline-warning ml-2" (click)="showUsersModal()">Users</button>
+    <button type="button" class="btn btn-md btn-outline-info ml-2" routerLink="/edit-user">Create/ Edit User</button>
+  </form>
+  <!-- Table for appointment list -->
+  <table class="table table-bordered table-dark my-4">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email <small>(IN - Initial, CN - Cancelled, BK - Booked)</small></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th scope="row">{{user.first_name}}</th>
+      <td>{{user.last_name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td></td>
+      <td><button type="button" class="btn btn-md btn-outline-danger" >Delete</button></td>
+      <!-- <ng-template #statusIn>
+        <div class="col-2" >
+          <button type="button" class="btn btn-md btn-outline-danger">Delete</button>
+        </div>
+      </ng-template> -->
+    </tr>
+  </tbody>
+</table>
+  <!-- Customer list modal -->
+  <div class="modal fade" id="customersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Customers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-4">
+              <h5>Customer Name</h5>
+            </div>
+            <div class="col-4">
+              <h5>Customer ID</h5>
+            </div>
+            <div class="col-4">
+              <h5>Customer Email</h5>
+            </div>
+          </div>
+          <div class="row mt-2" *ngFor="let customer of customers">
+            <div class="col-4">
+              <h6>{{customer.name}}</h6>
+            </div>
+            <div class="col-4">
+              <h6>{{customer.id}}</h6>
+            </div>
+            <div class="col-4">
+              <h6>{{customer.email}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Users modal -->
+<div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-3">
+            <h5>User Name</h5>
+          </div>
+          <div class="col-3">
+            <h5>Password</h5>
+          </div>
+          <div class="col-3">
+            <h5>Customer Email</h5>
+          </div>
+          <div class="col-3">
+
+          </div>
+        </div>
+        <div class="row mt-2" *ngFor="">
+          <div class="col-3">
+            <h6></h6>
+          </div>
+          <div class="col-3">
+            <h6></h6>
+          </div>
+          <div class="col-3">
+            <h6></h6>
+          </div>
+          <button style="margin-left: 12%;" type="button" class="btn btn-sm btn-outline-danger col-1" (click)="deleteUser(user._id)">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+<app-create-recipe></app-create-recipe>
+<app-footer></app-footer>
+</div>
