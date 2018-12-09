@@ -74,24 +74,6 @@ export class CookingSchoolComponent implements OnInit {
     }
   }
 
-  onUnEnroll(cookingSchool: any, username: any){
-    console.log(cookingSchool);
-    if(!cookingSchool.enrolledUser.includes(this.cookieService.get("userId"))){
-    cookingSchool.enrolledUser.push(this.cookieService.get("userId"));
-    this.cookingSchoolService.enrollUserInCookingSchool(cookingSchool).then((response) => {
-      console.log(response);
-      this.userServiceClient.enrollUserInCookingSchool(cookingSchool._id, this.cookieService.get("userId")).then((res) => {
-        this.cookingSchoolService.findAllCookingSchool().then((cookingSchools) => {
-          if(cookingSchools.length != 0){
-          this.cookingSchools = cookingSchools;
-          this.isLoaded = true;
-          }
-        });
-      });
-    });
-  }
-}
-
 onViewDetails(cookingSchool){
   console.log("Inside here");
   console.log("In view details: " + cookingSchool._id);
