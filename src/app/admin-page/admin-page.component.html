@@ -5,8 +5,7 @@
   <form class="form-inline my-2">
     <input class="form-control col-4" name="appointment" type="search" placeholder="Enter customer name with capitalization" />
     <input class="form-control col-4 ml-2 mr-2" name="status" type="search" placeholder="Enter appointment status e.g BK, CN, IN" />
-    <button type="button" class="btn btn-md btn-outline-dark ml-2">Customers</button>
-    <button type="button" class="btn btn-md btn-outline-warning ml-2">Users</button>
+    <button type="button" class="btn btn-md btn-outline-dark ml-2" [routerLink]="['/view-enrollments']">Create/ Edit Enrollments</button>
     <button type="button" class="btn btn-md btn-outline-info ml-2" routerLink="/edit-user">Create/ Edit User</button>
   </form>
   <!-- Table for appointment list -->
@@ -17,7 +16,6 @@
       <th scope="col">Ingredients</th>
       <th scope="col">Servings</th>
       <th scope="col">Ready in Minutes</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -26,8 +24,8 @@
       <td>{{recipe.extendedIngredients}}</td>
       <td>{{recipe.servings}}</td>
       <td>{{recipe.readyInMinutes}}</td>
-      <td></td>
-      <td><button type="button" class="btn btn-md btn-outline-danger" (click)="deleteRecipe(recipe._id)" >Delete</button></td>
+      <td><button mat-raised-button type="button" color="legacy" (click)="openEditRecipeDialog(recipe._id)">Edit</button></td>
+      <td><button mat-raised-button type="button" color="warn" (click)="deleteRecipe(recipe._id)" >Delete</button></td>
       <!-- <ng-template #statusIn>
         <div class="col-2" >
           <button type="button" class="btn btn-md btn-outline-danger">Delete</button>
@@ -79,7 +77,7 @@
   </div>
 </div>
 <!-- Users modal -->
-<div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -104,18 +102,6 @@
 
           </div>
         </div>
-        <div class="row mt-2" *ngFor="">
-          <div class="col-3">
-            <h6></h6>
-          </div>
-          <div class="col-3">
-            <h6></h6>
-          </div>
-          <div class="col-3">
-            <h6></h6>
-          </div>
-          <button style="margin-left: 12%;" type="button" class="btn btn-sm btn-outline-danger col-1" (click)="deleteUser(user._id)">Remove</button>
-        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -124,6 +110,6 @@
   </div>
 </div>
 </div>
-<app-create-recipe-admin></app-create-recipe-admin>
+<app-create-recipe-admin class="my-4"></app-create-recipe-admin>
 <app-footer></app-footer>
 </div>

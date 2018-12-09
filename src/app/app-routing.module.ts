@@ -9,6 +9,7 @@ import { MultipleRecipeDetailComponent } from './multiple-recipe-detail/multiple
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ViewCreatedRecipesComponent } from './view-created-recipes/view-created-recipes.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { ViewEnrollmentsComponent } from './view-enrollments/view-enrollments.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'edit-user', component: EditUserComponent},
   {path: 'recipes/:name', component: MultipleRecipeDetailComponent},
   {path: 'view-recipe', component: ViewCreatedRecipesComponent},
+  {path: 'view-enrollments', component: ViewEnrollmentsComponent},
   {path: 'edit/recipe/:id', component: EditRecipeComponent},
   {path: '**', component: HomePageComponent}
 ];

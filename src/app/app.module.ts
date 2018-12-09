@@ -48,6 +48,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ViewCreatedRecipesComponent } from './view-created-recipes/view-created-recipes.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-admin.component';
+import { EditRecipeAdminComponent } from './edit-recipe-admin/edit-recipe-admin.component';
+import { ViewEnrollmentsComponent } from './view-enrollments/view-enrollments.component';
 
 @NgModule({
   declarations: [
@@ -68,12 +70,15 @@ import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-
     EditUserComponent,
     ViewCreatedRecipesComponent,
     EditRecipeComponent,
-    CreateRecipeAdminComponent
+    CreateRecipeAdminComponent,
+    EditRecipeAdminComponent,
+    ViewEnrollmentsComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
+    EditRecipeAdminComponent
   ],
   imports: [
     BrowserModule,
