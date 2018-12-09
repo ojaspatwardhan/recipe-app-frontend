@@ -47,6 +47,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ViewCreatedRecipesComponent } from './view-created-recipes/view-created-recipes.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-admin.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
     CreateUserComponent,
     EditUserComponent,
     ViewCreatedRecipesComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    CreateRecipeAdminComponent
   ],
   entryComponents: [
     LoginComponent,
