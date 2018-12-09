@@ -114,6 +114,10 @@ export class RecipeServiceClient {
             method: "DELETE"
         }).then(response => response.json());
     }
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 6f18fc64b4b4db4fd2971f558e012fb22a085589
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
     //     method: "GET"
