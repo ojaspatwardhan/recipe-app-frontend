@@ -10,6 +10,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ViewCreatedRecipesComponent } from './view-created-recipes/view-created-recipes.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ViewEnrollmentsComponent } from './view-enrollments/view-enrollments.component';
+import { CookingSchoolComponent } from './cooking-school/cooking-school.component';
+import { CreateCoookingSchoolComponent } from './create-coooking-school/create-coooking-school.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path: 'view-recipe', component: ViewCreatedRecipesComponent},
   {path: 'view-enrollments', component: ViewEnrollmentsComponent},
   {path: 'edit/recipe/:id', component: EditRecipeComponent},
+  {path: 'cooking-school', component: CookingSchoolComponent},
+  {path: 'cooking-school/create/:id', component: CreateCoookingSchoolComponent},
   {path: '**', component: HomePageComponent}
 ];
 
