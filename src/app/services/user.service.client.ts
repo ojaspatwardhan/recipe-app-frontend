@@ -122,4 +122,18 @@ export class UserServiceClient {
       console.log(res);
     });
   }
+
+  enrollUserInCookingSchool(schoolId, id){
+    return fetch("http://localhost:4000/api/user/school/" + id, {
+        method: "PUT",
+        body: JSON.stringify({
+          schoolId: schoolId,
+          id: id
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+    }).then(response => response.json());
+}
 }
