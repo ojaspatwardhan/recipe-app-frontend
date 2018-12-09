@@ -3,49 +3,49 @@
     <div class="col-12">
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Username</mat-label>
-          <input id="username" matInput />
+          <mat-label>Recipe Name</mat-label>
+          <input [(ngModel)]="recipe.title" id="recipeName" matInput />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Password</mat-label>
-          <input id="password" matInput />
+          <mat-label>Source to image</mat-label>
+          <input [(ngModel)]="recipe.image" id="image" matInput />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>First Name</mat-label>
-          <input id="firstName" matInput />
+          <mat-label>Time to cook</mat-label>
+          <input [(ngModel)]="recipe.readyInMinutes" id="timeToCook" matInput />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Last Name</mat-label>
-          <input id="lastName" matInput />
+          <mat-label>Servings</mat-label>
+          <input [(ngModel)]="recipe.servings" id="servings" matInput />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Email</mat-label>
-          <input id="email" type="email"  matInput />
+          <mat-label>Ingredients</mat-label>
+          <textarea [(ngModel)]="recipe.extendedIngredients" id="ingredients" matInput rows="4" placeholder="Please type ingredients here in the following format (200 grams sugar, 100 grams flour)"></textarea>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Address</mat-label>
-          <textarea id="address" matInput rows="3" placeholder="Please type your address here"></textarea>
+          <mat-label>Cooking instructions</mat-label>
+          <textarea [(ngModel)]="recipe.instructions" id="instructions" matInput rows="4" placeholder="Type cooking instructions here"></textarea>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Role</mat-label>
-          <input id="role" type="text" matInput />
+          <mat-label>Created By</mat-label>
+          <input [(ngModel)]="recipe.creator" id="createdBy" type="text" matInput />
         </mat-form-field>
       </div>
     </div>
   </div>
   <div class="row">
-    <button mat-raised-button type="button" class="col-12 my-4" color="accent">Create</button>
+    <button mat-raised-button (click)="createRecipe(recipe)" type="button" class="col-12 my-4" color="accent">Create</button>
   </div>
 </div>
