@@ -53,6 +53,7 @@ import { EditRecipeAdminComponent } from './edit-recipe-admin/edit-recipe-admin.
 import { ViewEnrollmentsComponent } from './view-enrollments/view-enrollments.component';
 import { CookingSchoolComponent } from './cooking-school/cooking-school.component';
 import { CreateCoookingSchoolComponent } from './create-coooking-school/create-coooking-school.component';
+import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details/view-cooking-school-details.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CreateCoookingSchoolComponent } from './create-coooking-school/create-c
     EditRecipeAdminComponent,
     ViewEnrollmentsComponent,
     CookingSchoolComponent,
-    CreateCoookingSchoolComponent
+    CreateCoookingSchoolComponent,
+    ViewCookingSchoolDetailsComponent
   ],
   entryComponents: [
     LoginComponent,
