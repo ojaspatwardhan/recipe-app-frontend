@@ -1,10 +1,5 @@
 import { Recipe } from "../models/recipe.model.client";
 
-/*
-  local url - http://localhost:4000/
-  heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
-  */
-
 export class RecipeServiceClient {
 
   /*
@@ -102,7 +97,6 @@ export class RecipeServiceClient {
         return fetch("http://localhost:4000/api/recipe/edit/" + id).then((response) => response.json());
     }
 
-<<<<<<< HEAD
     editRecipe(recipe){
         return fetch("http://localhost:4000/api/recipe/"+recipe._id,{
             method: "PUT",
@@ -120,9 +114,6 @@ export class RecipeServiceClient {
             method: "DELETE"
         }).then(response => response.json());
     }
-  
-=======
->>>>>>> 8baa13e7085a882ec84b35620667f29ff7d085c1
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
     //     method: "GET"
