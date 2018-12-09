@@ -1,0 +1,52 @@
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: contain;
+  }
+  
+  /* Custom CSS for bootstrap card */
+  /* .card{
+    max-width: 20rem;
+    width: 20rem;
+  } */
+  
+  /* Custom CSS for material card. */
+  .example-card {
+    height: inherit;
+    width: inherit;
+    background-color: rgb(248, 248, 248);
+  }
+  
+  .foodTitle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  hr{
+    color: rgb(233, 233, 241);
+  }
+  
+  .infoText{
+    font-size: 0.75vw;
+    text-align: center;
+  }
+  
+  .verticalLine {
+    border-left: solid rgb(233, 233, 241);
+    text-align: center;
+    align-content: center;
+    transform: translate(55%);
+  }
+  
+  span{
+    color: rgb(119, 204, 0);
+  }
+  
+  img {
+    padding: 15px 15px 0;
+    background-color: rgb(248, 248, 248);
+  }
+  
+  a.moreBtn {
+    text-decoration: inherit;
+  }

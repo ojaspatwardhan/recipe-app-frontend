@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
       console.log(response);
       this.cookieService.set("username", response.username);
       this.cookieService.set("userId", response.userId);
+      this.cookieService.set("userType", response.role);
       if (response.token) {
         this.dialogRef.close();
         this.userService.setUsername(response.username);

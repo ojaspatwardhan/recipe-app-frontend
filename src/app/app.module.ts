@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 //Services imports.
 import { SpoonacularServiceClient } from './services/spoonacular.service.client';
 import { UserServiceClient } from './services/user.service.client';
+import {CookingSchoolServiceClient} from './services/cooking-school.service.client';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -48,6 +49,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ViewCreatedRecipesComponent } from './view-created-recipes/view-created-recipes.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-admin.component';
+import { CookingSchoolComponent } from './cooking-school/cooking-school.component';
+import { CreateCoookingSchoolComponent } from './create-coooking-school/create-coooking-school.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,9 @@ import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-
     EditUserComponent,
     ViewCreatedRecipesComponent,
     EditRecipeComponent,
-    CreateRecipeAdminComponent
+    CreateRecipeAdminComponent,
+    CookingSchoolComponent,
+    CreateCoookingSchoolComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -99,7 +104,8 @@ import { CreateRecipeAdminComponent } from './create-recipe-admin/create-recipe-
     SpoonacularServiceClient,
     UserServiceClient,
     CookieService,
-    RecipeServiceClient
+    RecipeServiceClient,
+    CookingSchoolServiceClient
   ],
   bootstrap: [AppComponent]
 })

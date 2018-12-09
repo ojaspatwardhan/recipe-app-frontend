@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <app-nav-bar></app-nav-bar>
+      </header>
+      <br>
+      <div *ngIf = "!isLoaded">
+        <h3>There are currently no cooking schools</h3>
+      </div>
+      <div class="jumbotron" *ngIf = "chefLoaded">
+          <h4 class="center" style="text-align: center">{{chefName}}s cooking school</h4>
+          <br>
+          <div class="row">
+            <div class="col-5">
+                <button *ngIf = "chefLoaded" class="btn btn-primary" (click) = "onCreateCookingSchool()">CREATE COOKING SCHOOL</button>
+                <br>
+                <h4 class="my-3">Total No Of Schools : <span >{{totalNumberOfSchools | number: '1.0-0'}}</span></h4>
+                <h4>Total No Of Enrollments: <span >{{totalEnrollments}}</span></h4>
+                <div *ngFor="let userName of userNames">
+                  <div>
+                    <span>{{userName}}</span>
+                    <button class="btn btn-danger">DELETE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="row card-group" *ngIf = "chefLoaded">
+                <div class="col-7"  *ngFor="let cookingSchool of chefCookingSchools; let i = index">
+                    <mat-card class="example-card">
+                        <img mat-card-image src = {{cookingSchool.image}} alt="Photo of a recipe" />
+                        <mat-card-content>
+                          <h6 class="foodTitle">{{cookingSchool.name}}</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-4 infoText">No Of Seats : <span>{{cookingSchool.noOfSeats | number: '1.0-0'}}</span></div>
+                                <div class="col-1 verticalLine"></div>
+                                <div class="col-4 infoText">Duration: <span>{{cookingSchool.duration}}</span></div>
+                                <div class="col-1"></div>
+                            </div>
+                            <hr>
+                        </mat-card-content>
+                      </mat-card>
+                      <br>
+                </div>
+            </div>
+          </div>
+      </div>
+      <hr>
+      <h4 *ngIf = "isLoaded">Cooking Schools</h4>
+      <hr *ngIf = "isLoaded">
+      <div class="row card-group" *ngIf = "isLoaded">
+          <div class="col-4"  *ngFor="let cookingSchool of cookingSchools; let i = index">
+              <mat-card class="example-card">
+                  <img mat-card-image src = {{cookingSchool.image}} alt="Photo of a recipe" />
+                  <mat-card-content>
+                    <h6 class="foodTitle">{{cookingSchool.name}}</h6>
+                      <hr>
+                      <div class="row">
+                          <div class="col-1"></div>
+                          <div class="col-4 infoText">No Of Seats : <span>{{cookingSchool.noOfSeats | number: '1.0-0'}}</span></div>
+                          <div class="col-1 verticalLine"></div>
+                          <div class="col-4 infoText">Duration: <span>{{cookingSchool.duration}}</span></div>
+                          <div class="col-1"></div>
+                      </div>
+                      <hr>
+                  </mat-card-content>
+                  <mat-card-actions>
+                      <button mat-button *ngIf = "!chefLoaded" (click) = "onEnroll(cookingSchool)">ENROLL</button>
+                  </mat-card-actions>
+                </mat-card>
+                <br>
+          </div>
+      </div>
+      <div class="footer">
+        <app-footer></app-footer>
+      </div>
+    </div>
+  </body>
+</html>

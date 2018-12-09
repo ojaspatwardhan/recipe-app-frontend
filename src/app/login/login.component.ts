@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       console.log(user);
       this.cookieService.set("username", user.username);
       this.cookieService.set("userId", user.userId);
+      this.cookieService.set("userType", user.role);
       this.dialogRef.close();
       this.router.navigate(['profile']);
     });
