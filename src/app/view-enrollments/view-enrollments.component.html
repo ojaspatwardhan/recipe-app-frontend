@@ -5,18 +5,18 @@
   <table class="table table-bordered table-dark my-4">
   <thead>
     <tr>
-      <th scope="col">Enrollment</th>
-      <th scope="col">Ingredients</th>
-      <th scope="col">Servings</th>
-      <th scope="col">Ready in Minutes</th>
+      <th scope="col">Cooking School Name</th>
+      <th scope="col">Enrolled Users</th>
+      <th scope="col">Seats</th>
+      <th scope="col">Duration</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="">
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let cookingSchool of cookingSchools">
+      <th scope="row">{{cookingSchool.name}}</th>
+      <td>{{cookingSchool.enrolledUser.length}}</td>
+      <td>{{cookingSchool.noOfSeats}}</td>
+      <td>{{cookingSchool.duration}}</td>
       <td><button mat-raised-button type="button" color="legacy" (click)="openEditRecipeDialog(recipe._id)">Edit</button></td>
       <td><button mat-raised-button type="button" color="warn" (click)="deleteRecipe(recipe._id)" >Delete</button></td>
     </tr>
@@ -26,49 +26,16 @@
     <div class="col-12">
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Recipe Name</mat-label>
+          <mat-label>User Name</mat-label>
           <input id="recipeName" matInput />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Source to image</mat-label>
-          <input id="image" matInput />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Time to cook</mat-label>
-          <input id="timeToCook" matInput />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Servings</mat-label>
-          <input id="servings" matInput />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Ingredients</mat-label>
-          <textarea id="ingredients" matInput rows="4" placeholder="Please type ingredients here in the following format (200 grams sugar, 100 grams flour)"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Cooking instructions</mat-label>
-          <textarea id="instructions" matInput rows="4" placeholder="Type cooking instructions here"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
-          <mat-label>Created By</mat-label>
-          <input id="createdBy" type="text" matInput />
         </mat-form-field>
       </div>
     </div>
   </div>
   <div class="row">
-    <button mat-raised-button (click)="createRecipe(recipe)" type="button" class="col-12 my-4" color="primary">Create</button>
+    <button mat-raised-button type="button" class="col-12 my-4" color="primary">Enroll</button>
+  </div>
+  <div class="row">
+    <button mat-raised-button type="button" class="col-12 my-4" color="warn">UnEnroll</button>
   </div>
 </div>

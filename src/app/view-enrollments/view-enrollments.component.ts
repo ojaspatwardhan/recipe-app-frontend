@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
+import { CookingSchool } from '../models/cooking-school.model.client';
 
 @Component({
   selector: 'app-view-enrollments',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEnrollmentsComponent implements OnInit {
 
-  constructor() { }
+  cookingSchool: CookingSchool = new CookingSchool;
+  cookingSchools: CookingSchool[];
+
+  constructor(private cookingSchoolService: CookingSchoolServiceClient) { }
 
   ngOnInit() {
+    this.cookingSchoolService.findAllCookingSchool().then((schools) => {
+      this.cookingSchools = schools;
+      console.log(this.cookingSchools);
+    });
   }
 
 }
