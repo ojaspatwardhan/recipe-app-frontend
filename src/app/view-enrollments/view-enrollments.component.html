@@ -1,0 +1,41 @@
+<header>
+  <app-nav-bar></app-nav-bar>
+</header>
+<div class="container-fluid">
+  <table class="table table-bordered table-dark my-4">
+  <thead>
+    <tr>
+      <th scope="col">Cooking School Name</th>
+      <th scope="col">Enrolled Users</th>
+      <th scope="col">Seats</th>
+      <th scope="col">Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cookingSchool of cookingSchools">
+      <th scope="row">{{cookingSchool.name}}</th>
+      <td>{{cookingSchool.enrolledUser.length}}</td>
+      <td>{{cookingSchool.noOfSeats}}</td>
+      <td>{{cookingSchool.duration}}</td>
+      <td><button mat-raised-button type="button" color="legacy" (click)="openEditRecipeDialog(recipe._id)">Edit</button></td>
+      <td><button mat-raised-button type="button" color="warn" (click)="deleteRecipe(recipe._id)" >Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+  <div class="row my-4">
+    <div class="col-12">
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>User Name</mat-label>
+          <input id="recipeName" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button mat-raised-button type="button" class="col-12 my-4" color="primary">Enroll</button>
+  </div>
+  <div class="row">
+    <button mat-raised-button type="button" class="col-12 my-4" color="warn">UnEnroll</button>
+  </div>
+</div>

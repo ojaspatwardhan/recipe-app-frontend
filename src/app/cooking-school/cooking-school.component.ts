@@ -22,7 +22,7 @@ export class CookingSchoolComponent implements OnInit {
   userNames: String[] = new Array();
 
   constructor(private cookieService: CookieService, private cookingSchoolService: CookingSchoolServiceClient, private router: Router
-  , private userServiceClient: UserServiceClient) { 
+  , private userServiceClient: UserServiceClient) {
     this.isLoaded = false;
     this.chefLoaded = false;
     this.totalEnrollments = 0;
@@ -47,7 +47,7 @@ export class CookingSchoolComponent implements OnInit {
         this.totalNumberOfSchools = this.chefCookingSchools.length;
         this.chefName = this.cookieService.get("username");
         this.chefLoaded = true;
-      });  
+      });
     }
     this.cookingSchoolService.findAllCookingSchool().then((cookingSchools) => {
       if(cookingSchools.length != 0){
@@ -58,8 +58,7 @@ export class CookingSchoolComponent implements OnInit {
   }
 
   onEnroll(cookingSchool: any){
-    console.log(cookingSchool);
-    if(!cookingSchool.enrolledUser.includes(this.cookieService.get("userId"))){
+    if(!cookingSchool.enrolledUser.includes(this.cookieService.get("userId"))) {
     cookingSchool.enrolledUser.push(this.cookieService.get("userId"));
     this.cookingSchoolService.enrollUserInCookingSchool(cookingSchool).then((response) => {
       console.log(response);
@@ -91,7 +90,7 @@ export class CookingSchoolComponent implements OnInit {
       });   
     });
   }
-  }
+}
 
   onCreateCookingSchool(){
     this.router.navigate(['/cooking-school/create/', this.cookieService.get("userId")]);

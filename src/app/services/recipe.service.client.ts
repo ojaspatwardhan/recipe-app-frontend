@@ -77,6 +77,17 @@ export class RecipeServiceClient {
     //   }).then((response) => response.json());
     // }
 
+    updateRecipe(recipe) {
+      return fetch("http://localhost:4000/api/recipe/" + recipe._id, {
+        method: "PUT",
+        credentials: "include",
+        body: JSON.stringify(recipe),
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then((response) => response.json());
+    }
+
     createRecipe(recipe) {
       return fetch("http://localhost:4000/api/recipe/", {
         method: "POST",
