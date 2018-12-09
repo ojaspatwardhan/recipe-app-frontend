@@ -18,6 +18,7 @@ export class ViewCreatedRecipesComponent implements OnInit {
   constructor(private recipeServiceClient: RecipeServiceClient, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
+    console.log(this.cookieService.get("userId"));
     this.recipeServiceClient.findUserRecipe(this.cookieService.get("userId")).then((result) => {
       this.retrievedRecipes = result;
     });
@@ -28,6 +29,15 @@ export class ViewCreatedRecipesComponent implements OnInit {
     this.recipeId = recipe._id;
     // console.log(this.recipeId);
     this.router.navigate(['/edit/recipe/',this.recipeId]);
+  }
+
+  onDeleteRecipe(recipe: any){
+    this.recipeId = recipe._id;
+    this.recipeServiceClient.deleteRecipe(this.recipeId).then((result) => {
+      this.recipeServiceClient.findUserRecipe(this.cookieService.get("userId")).then((result) => {
+        this.retrievedRecipes = result;
+      });
+    });
   }
 
 }

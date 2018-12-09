@@ -23,8 +23,6 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   createRecipe(recipe: Recipe) {
-    // this.cookieService.set("username", response.username);
-    // console.log(recipe);
     this.extendedIngredients = this.recipe.extendedIngredients.split(",");
     this.recipe.extendedIngredients = this.extendedIngredients;
     this.recipe.creator = this.cookieService.get("userId");
@@ -32,9 +30,6 @@ export class CreateRecipeComponent implements OnInit {
     this.recipeService.createRecipe(recipe).then((response) => {
       if (response) {
         this.dialogRef.close();
-        // this.userService.setUsername(response.username);
-        // this.userService.setUserId(response.userId);
-        // this.router.navigate(['profile']);
         console.log("In if of create recipe");
       }
     });

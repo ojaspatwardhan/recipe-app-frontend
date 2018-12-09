@@ -1,5 +1,5 @@
 import { RecipeServiceClient } from './../services/recipe.service.client';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,7 +13,7 @@ export class EditRecipeComponent implements OnInit {
   recipe: any;
   isLoaded: boolean;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceClient) {
+  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceClient, private router: Router) {
     this.isLoaded = false;
    }
 
@@ -26,7 +26,10 @@ export class EditRecipeComponent implements OnInit {
   }
 
   editRecipe(recipe){
-    console.log(recipe);
+    this.recipeService.editRecipe(recipe).then((result) => {
+      console.log(result);
+      this.router.navigate(['view-recipe']);
+    });
   }
 
 }
