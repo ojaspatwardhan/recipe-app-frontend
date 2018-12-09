@@ -33,7 +33,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
 
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
-    this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchool).
+    this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchool, userId).
     then((response) => {
       console.log(response);
       this.userService.unEnrollUserFromCookingSchool(this.cookingSchool._id, userId).then((res) => {
