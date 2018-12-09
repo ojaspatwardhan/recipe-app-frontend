@@ -14,6 +14,7 @@ import { Recipe } from '../models/recipe.model.client';
 export class CreateRecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
+  extendedIngredients: any[];
 
   constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router, 
     public dialogRef: MatDialogRef<CreateRecipeComponent>, private recipeService: RecipeServiceClient) { }
@@ -23,7 +24,11 @@ export class CreateRecipeComponent implements OnInit {
 
   createRecipe(recipe: Recipe) {
     // this.cookieService.set("username", response.username);
-    console.log(recipe);
+    // console.log(recipe);
+    this.extendedIngredients = this.recipe.extendedIngredients.split(",");
+    this.recipe.extendedIngredients = this.extendedIngredients;
+    this.recipe.creator = this.cookieService.get("userId");
+    console.log(this.recipe);
     this.recipeService.createRecipe(recipe).then((response) => {
       if (response) {
         this.dialogRef.close();

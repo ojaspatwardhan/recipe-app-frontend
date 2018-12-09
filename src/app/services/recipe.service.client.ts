@@ -2,8 +2,6 @@ import { Recipe } from "../models/recipe.model.client";
 
 export class RecipeServiceClient {
 
-    private username: string;
-    private userId: any;
   
     //Getter and Setters
     // getUserId() {
@@ -75,7 +73,7 @@ export class RecipeServiceClient {
     //   }).then((response) => response.json());
     // }
   
-    createRecipe(recipe : Recipe) {
+    createRecipe(recipe) {
       return fetch("http://localhost:4000/api/recipe/", {
         method: "POST",
         body: JSON.stringify(recipe),
@@ -85,6 +83,14 @@ export class RecipeServiceClient {
       }).then((response) => response.json()).catch(res => {
         console.log(res);
       });
+    }
+
+    findUserRecipe(id){
+        return fetch("http://localhost:4000/api/recipe/" + id).then((response) => response.json());
+    }
+
+    findRecipeById(id){
+        return fetch("http://localhost:4000/api/recipe/edit/" + id).then((response) => response.json());
     }
   
     // findProfile(username) {

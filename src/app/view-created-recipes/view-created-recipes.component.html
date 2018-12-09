@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <app-nav-bar></app-nav-bar>
+      </header>
+      <br>
+
+      <div class="row card-group">
+          <div class="col-4"  *ngFor="let recipe of retrievedRecipes; let i = index">
+              <mat-card class="example-card" [routerLink] = "['/recipe',recipe.id]">
+                  <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
+                  <mat-card-content>
+                    <h6 class="foodTitle">{{recipe.title}}</h6>
+                      <hr>
+                      <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10 infoText">Ready In Minutes : <span>{{recipe.readyInMinutes | number: '1.0-0'}}</span></div>
+                        <div class="col-1"></div>
+                      </div>
+                      <hr>
+                  </mat-card-content>
+                  <mat-card-actions>
+                      <button mat-button (click)="onEditRecipe(recipe)">EDIT</button>
+                      <button mat-button>DELETE</button>
+                  </mat-card-actions>
+                </mat-card>
+                <br>
+          </div>
+      </div>
+      <div class="footer">
+        <app-footer></app-footer>
+      </div>
+    </div>
+  </body>
+</html>

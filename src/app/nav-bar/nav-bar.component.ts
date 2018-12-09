@@ -50,7 +50,7 @@ export class NavBarComponent implements OnInit {
 
   openCreateRecipeDialog(): void {
     const dialogRef = this.dialog.open(CreateRecipeComponent, {
-      width: '650px',
+      width: '700px',
       height: '500px'
     });
   }

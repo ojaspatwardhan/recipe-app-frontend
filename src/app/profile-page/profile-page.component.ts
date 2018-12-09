@@ -33,4 +33,8 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  viewRecipes(){
+    this.router.navigate(['/view-recipe']);
+  }
+
 }
