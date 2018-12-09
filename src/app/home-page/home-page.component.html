@@ -12,8 +12,8 @@
       <br>
       <div class="row card-group">
           <div class="col-4"  *ngFor="let recipe of recipes; let i = index">
-              <mat-card class="example-card" [routerLink] = "['/recipe',recipe.id]">
-                  <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
+              <mat-card class="example-card">
+                  <img mat-card-image src = {{recipe.image}} [routerLink] = "['/recipe',recipe.id]" alt="Photo of a recipe" />
                   <mat-card-content>
                     <h6 class="foodTitle">{{recipe.title}}</h6>
                       <hr>
@@ -28,7 +28,7 @@
                   </mat-card-content>
                   <mat-card-actions>
                       <button mat-button>LIKE</button>
-                      <a href = "{{recipe.sourceUrl}}" mat-button class="moreBtn">MORE</a>
+                      <a href = "{{recipe.sourceUrl}}" mat-button class="moreBtn" target="_blank">MORE</a>
                   </mat-card-actions>
                 </mat-card>
                 <br>

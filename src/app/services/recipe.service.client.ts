@@ -109,12 +109,16 @@ export class RecipeServiceClient {
     }
 
     deleteRecipe(id){
-        console.log(id);
         return fetch("http://localhost:4000/api/recipe/" + id, {
             method: "DELETE"
         }).then(response => response.json());
     }
 
+    findAllRecipes() {
+      return fetch("http:////localhost:4000/api/recipe/recipes/all", {
+        credentials: "include"
+      }).then((response) => response.json());
+    }
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
     //     method: "GET"

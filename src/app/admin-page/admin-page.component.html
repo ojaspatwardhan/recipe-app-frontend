@@ -13,21 +13,21 @@
   <table class="table table-bordered table-dark my-4">
   <thead>
     <tr>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Username</th>
-      <th scope="col">Email <small>(IN - Initial, CN - Cancelled, BK - Booked)</small></th>
+      <th scope="col">Recipe Name</th>
+      <th scope="col">Ingredients</th>
+      <th scope="col">Servings</th>
+      <th scope="col">Ready in Minutes</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <th scope="row">{{user.first_name}}</th>
-      <td>{{user.last_name}}</td>
-      <td>{{user.username}}</td>
-      <td>{{user.email}}</td>
+    <tr *ngFor="let recipe of recipes">
+      <th scope="row">{{recipe.title}}</th>
+      <td>{{recipe.extendedIngredients}}</td>
+      <td>{{recipe.servings}}</td>
+      <td>{{recipe.readyInMinutes}}</td>
       <td></td>
-      <td><button type="button" class="btn btn-md btn-outline-danger" >Delete</button></td>
+      <td><button type="button" class="btn btn-md btn-outline-danger" (click)="deleteRecipe(recipe._id)" >Delete</button></td>
       <!-- <ng-template #statusIn>
         <div class="col-2" >
           <button type="button" class="btn btn-md btn-outline-danger">Delete</button>
@@ -124,7 +124,6 @@
   </div>
 </div>
 </div>
-<!-- <app-create-recipe></app-create-recipe> -->
 <app-create-recipe-admin></app-create-recipe-admin>
 <app-footer></app-footer>
 </div>

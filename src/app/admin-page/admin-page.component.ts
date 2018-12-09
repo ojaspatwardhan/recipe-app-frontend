@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user.model.client';
-import { UserServiceClient } from '../services/user.service.client';
+import { Recipe } from '../models/recipe.model.client';
+import { RecipeServiceClient } from '../services/recipe.service.client';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,13 +9,22 @@ import { UserServiceClient } from '../services/user.service.client';
 })
 export class AdminPageComponent implements OnInit {
 
-  users: User[];
+  recipes: Recipe[];
 
-  constructor(private userService: UserServiceClient) { }
+  constructor(private recipeService: RecipeServiceClient) { }
 
   ngOnInit() {
-    this.userService.findAllUsers().then((users) => {
-      this.users = users;
-    })
+    this.recipeService.findAllRecipes().then((recipes) => {
+      this.recipes = recipes;
+      console.log(this.recipes);
+    });
+  }
+
+  deleteRecipe(recipeId) {
+    this.recipeService.deleteRecipe(recipeId).then((response) => {
+      this.recipeService.findAllRecipes().then((recipes) => {
+        this.recipes = recipes;
+      });
+    });
   }
 }
