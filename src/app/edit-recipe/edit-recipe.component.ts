@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { RecipeServiceClient } from './../services/recipe.service.client';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ export class EditRecipeComponent implements OnInit {
   recipe: any;
   isLoaded: boolean;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceClient, private router: Router) {
+  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceClient, private router: Router, 
+    private cookieService: CookieService) {
     this.isLoaded = false;
    }
 
@@ -26,6 +28,7 @@ export class EditRecipeComponent implements OnInit {
   }
 
   editRecipe(recipe){
+    recipe.creator = this.cookieService.get("userId");
     this.recipeService.editRecipe(recipe).then((result) => {
       console.log(result);
       this.router.navigate(['view-recipe']);
