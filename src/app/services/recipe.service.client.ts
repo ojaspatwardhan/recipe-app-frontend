@@ -2,26 +2,30 @@ import { Recipe } from "../models/recipe.model.client";
 
 export class RecipeServiceClient {
 
-  
+  /*
+  local url - http://localhost:4000/
+  heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
+  */
+
     //Getter and Setters
     // getUserId() {
     //   return this.userId;
     // }
-  
+
     // setUserId(id) {
     //   this.userId = id;
     // }
-  
+
     // getUsername() {
     //   return this.username;
     // }
-  
+
     // setUsername(username) {
     //   this.username = username;
     // }
-  
+
     // //Recipe methods
-  
+
     // removeUser(id) {
     //   console.log(id);
     //   return fetch("http://localhost:4000/api/user/" + id, {
@@ -29,7 +33,7 @@ export class RecipeServiceClient {
     //   })
     //   .then(response => response.text());
     // }
-  
+
     // createUserByAdmin(username, password, firstName, lastName, email, address, role) {
     //   const user = {
     //     username: username,
@@ -49,18 +53,18 @@ export class RecipeServiceClient {
     //     }
     //   }).then(response => response.json());
     // }
-  
+
     // findUserById(id) {
     //   return fetch("http://localhost:4000/api/user/id/" + id).then((response) => response.json());
     // }
-  
+
     // findAllUsers() {
     //   // console.log("inside findAllUsers");
     //   return fetch("http://localhost:4000/api/user/users", {
     //     credentials: "include"
     //   }).then((response) => response.json());
     // }
-  
+
     // updateUser(user) {
     //   console.log("inside updateUser");
     //   return fetch("http://localhost:4000/api/user/" + user._id, {
@@ -72,9 +76,9 @@ export class RecipeServiceClient {
     //     }
     //   }).then((response) => response.json());
     // }
-  
+
     createRecipe(recipe) {
-      return fetch("http://localhost:4000/api/recipe/", {
+      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/", {
         method: "POST",
         body: JSON.stringify(recipe),
         headers: {
@@ -86,19 +90,19 @@ export class RecipeServiceClient {
     }
 
     findUserRecipe(id){
-        return fetch("http://localhost:4000/api/recipe/" + id).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/" + id).then((response) => response.json());
     }
 
     findRecipeById(id){
-        return fetch("http://localhost:4000/api/recipe/edit/" + id).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/edit/" + id).then((response) => response.json());
     }
-  
+
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
     //     method: "GET"
     //   }).then((response) => response.json());
     // }
-  
+
     // loginUser(username, password) {
     //   const user = {
     //     username: username,
@@ -115,4 +119,3 @@ export class RecipeServiceClient {
     //   });
     // }
   }
-  
