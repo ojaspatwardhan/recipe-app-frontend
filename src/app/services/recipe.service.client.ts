@@ -78,7 +78,7 @@ export class RecipeServiceClient {
     // }
 
     createRecipe(recipe) {
-      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/", {
+      return fetch("http://localhost:4000/api/recipe/", {
         method: "POST",
         body: JSON.stringify(recipe),
         headers: {
@@ -90,11 +90,11 @@ export class RecipeServiceClient {
     }
 
     findUserRecipe(id){
-        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/" + id).then((response) => response.json());
+        return fetch("http://localhost:4000/api/recipe/" + id).then((response) => response.json());
     }
 
     findRecipeById(id){
-        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/recipe/edit/" + id).then((response) => response.json());
+        return fetch("http://localhost:4000/api/recipe/edit/" + id).then((response) => response.json());
     }
 
     // findProfile(username) {

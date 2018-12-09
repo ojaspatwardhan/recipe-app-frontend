@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   login(username, password) {
     this.userService.loginUser(username, password).then((user) => {
+      console.log(user);
       this.cookieService.set("username", user.username);
+      this.cookieService.set("userId", user.userId);
       this.dialogRef.close();
       this.router.navigate(['profile']);
     });
