@@ -92,6 +92,12 @@ export class CookingSchoolComponent implements OnInit {
   }
 }
 
+onViewDetails(cookingSchool){
+  console.log("Inside here");
+  console.log("In view details: " + cookingSchool._id);
+  this.router.navigate(['/school/details/', cookingSchool._id]);
+}
+
   onCreateCookingSchool(){
     this.router.navigate(['/cooking-school/create/', this.cookieService.get("userId")]);
   }
