@@ -57,7 +57,7 @@ export class CookingSchoolComponent implements OnInit {
     });
   }
 
-  onEnroll(cookingSchool: any){
+  onEnroll(cookingSchool: any) {
     if(!cookingSchool.enrolledUser.includes(this.cookieService.get("userId"))) {
     cookingSchool.enrolledUser.push(this.cookieService.get("userId"));
     this.cookingSchoolService.enrollUserInCookingSchool(cookingSchool).then((response) => {
@@ -69,9 +69,9 @@ export class CookingSchoolComponent implements OnInit {
           this.isLoaded = true;
           }
         });
-      });   
+      });
     });
-  }
+    }
   }
 
   onUnEnroll(cookingSchool: any, username: any){
@@ -87,7 +87,7 @@ export class CookingSchoolComponent implements OnInit {
           this.isLoaded = true;
           }
         });
-      });   
+      });
     });
   }
 }

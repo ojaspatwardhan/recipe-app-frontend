@@ -123,7 +123,7 @@ export class UserServiceClient {
     });
   }
 
-  enrollUserInCookingSchool(schoolId, id){
+  enrollUserInCookingSchool(schoolId, id) {
     return fetch("http://localhost:4000/api/user/school/" + id, {
         method: "PUT",
         body: JSON.stringify({
@@ -135,5 +135,20 @@ export class UserServiceClient {
           "content-type": "application/json"
         }
     }).then(response => response.json());
-}
+  }
+
+  unEnrollUserFromCookingSchool(schoolId, id) {
+    console.log(id + " " + "inside user");
+    return fetch("http://localhost:4000/api/user/user/unenroll", {
+        method: "PUT",
+        body: JSON.stringify({
+          schoolId: schoolId,
+          id: id
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+    }).then(response => response.json());
+  }
 }
