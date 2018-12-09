@@ -3,6 +3,7 @@ import { CookingSchoolServiceClient } from '../services/cooking-school.service.c
 import { UserServiceClient } from '../services/user.service.client';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookingSchool } from '../models/cooking-school.model.client';
+import { SpoonacularServiceClient } from '../services/spoonacular.service.client';
 
 @Component({
   selector: 'app-view-cooking-school-details',
@@ -15,8 +16,13 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   users: any[] = new Array();
   finalUsersArray: any[] = new Array();
   cookingSchool: any;
+  recipes: any;
+  isLoaded: boolean;
 
-  constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
+    private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient) {
+      this.isLoaded = false;
+    }
 
   ngOnInit() {
     this.cookingSchoolId = this.route.snapshot.paramMap.get("id");
@@ -29,7 +35,12 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       });
       this.cookingSchool = cookingSchool;
     });
-  }
+
+    this.recipeService.getNumberOfRecipe(5).then((result) => {
+      this.recipes = result.recipes;
+      this.isLoaded = true;
+  });
+}
 
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
