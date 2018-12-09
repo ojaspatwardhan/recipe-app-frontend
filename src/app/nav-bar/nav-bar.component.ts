@@ -7,6 +7,8 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { Router } from '@angular/router';
 import { CreateRecipeComponent } from '../create-recipe/create-recipe.component';
+import { CookieService } from 'ngx-cookie-service';
+import { UserServiceClient } from '../services/user.service.client';
 
 
 @Component({
@@ -16,6 +18,9 @@ import { CreateRecipeComponent } from '../create-recipe/create-recipe.component'
 })
 export class NavBarComponent implements OnInit {
 
+  //Cookie value
+  cookieValue: string = "";
+
   opened: boolean;
   ingredientControl;
   options: string[] = ["Option 1", "Option 2", "Option 3"];
@@ -24,14 +29,23 @@ export class NavBarComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router, private cookieService: CookieService, private userService: UserServiceClient) { }
 
   ngOnInit() {
+    this.cookieValue = this.cookieService.get("username");
+    console.log(this.cookieValue);
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
       );
+  }
+
+  logout() {
+    this.cookieService.delete("username");
+    this.userService.logout().then(() => {
+      this.router.navigate(['home']);
+    });
   }
 
   openLoginDialog(): void {

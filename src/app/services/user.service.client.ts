@@ -27,6 +27,13 @@ export class UserServiceClient {
 
   //User methods
 
+  logout() {
+    return fetch("http://localhost:4000/api/user/logout", {
+      method: "POST",
+      credentials: "include"
+    });
+  }
+
   removeUser(id) {
     console.log(id);
     return fetch("http://localhost:4000/api/user/" + id, {

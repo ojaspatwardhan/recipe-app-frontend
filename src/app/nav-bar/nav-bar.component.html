@@ -26,9 +26,9 @@
         <a class="nav-link" href="#">Contact Us</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" *ngIf="cookieValue == ''; else loggedIn">
       <!-- Create Recipe dialog-->
-      <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
+      <!-- <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button> -->
       <!-- Login & Register dialogs -->
       <button class="mr-4" (click)="openLoginDialog()" type="button" mat-raised-button color="accent" name="login">Log in</button>
       <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button>
@@ -41,8 +41,25 @@
         </mat-autocomplete>
       </mat-form-field>
       <button mat-raised-button color="accent" (click) = "callDisplayRecipe()">Search</button>
-      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Ingredient Search" aria-label="Search" />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     </form>
+    <!-- Template to render a different form when user has logged in -->
+    <ng-template #loggedIn>
+      <form class="form-inline my-2 my-lg-0">
+        <!-- Create Recipe dialog-->
+        <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
+        <!-- Login & Register dialogs -->
+        <button class="mr-4" type="button" (click)="logout()" mat-raised-button color="accent" name="logout">Log out</button>
+        <!-- <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button> -->
+        <mat-form-field class="mr-sm-3" color="accent">
+          <input type="text" id="ingredientSearch" matInput placeholder="Search by Recipe" [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName"/>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click) = "callDisplayRecipe()">Search</button>
+      </form>
+    </ng-template>
   </div>
 </nav>

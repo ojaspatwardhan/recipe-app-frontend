@@ -51,7 +51,6 @@ export class EditUserComponent implements OnInit {
 
   //Update User
   updateUser(user: User) {
-  console.log(user);
   this.userService.updateUser(user).then((response) => {
     $("#userModal").modal("toggle");
     this.userService.findAllUsers()

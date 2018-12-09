@@ -1,10 +1,5 @@
 import { Recipe } from "../models/recipe.model.client";
 
-/*
-  local url - http://localhost:4000/
-  heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
-  */
-
 export class RecipeServiceClient {
 
   /*
@@ -119,7 +114,10 @@ export class RecipeServiceClient {
             method: "DELETE"
         }).then(response => response.json());
     }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 6f18fc64b4b4db4fd2971f558e012fb22a085589
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
     //     method: "GET"

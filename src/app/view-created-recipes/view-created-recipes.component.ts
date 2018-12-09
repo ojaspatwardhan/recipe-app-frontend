@@ -24,7 +24,7 @@ export class ViewCreatedRecipesComponent implements OnInit {
     });
   }
 
-  onEditRecipe(recipe: any){
+  onEditRecipe(recipe: any) {
     // console.log(recipe);
     this.recipeId = recipe._id;
     // console.log(this.recipeId);

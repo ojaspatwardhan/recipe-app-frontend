@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
 
   register(username, password) {
     this.userService.registerUser(username, password).then((response) => {
+      console.log(response);
       this.cookieService.set("username", response.username);
       this.cookieService.set("userId", response.userId);
       if (response.token) {
