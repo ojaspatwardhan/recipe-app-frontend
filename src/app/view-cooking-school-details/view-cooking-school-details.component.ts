@@ -12,9 +12,9 @@ import { CookingSchool } from '../models/cooking-school.model.client';
 export class ViewCookingSchoolDetailsComponent implements OnInit {
 
   cookingSchoolId: any;
-  users: User[] = new Array();
+  users: any[] = new Array();
   finalUsersArray: any[] = new Array();
-  cookingSchool: CookingSchool;
+  cookingSchool: any;
 
   constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient, private router: Router, private route: ActivatedRoute) { }
 

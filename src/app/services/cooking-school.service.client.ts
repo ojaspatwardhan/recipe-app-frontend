@@ -77,6 +77,10 @@ export class CookingSchoolServiceClient {
     //   }).then((response) => response.json());
     // }
 
+    findSchoolByName(name) {
+      return fetch("http://localhost:4000/api/cooking-school/name/" + name).then((response) => response.json());
+    }
+
     createCookingSchool(cookingSchool) {
       return fetch("http://localhost:4000/api/cooking-school", {
         method: "POST",
