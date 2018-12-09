@@ -13,6 +13,7 @@ export class ProfilePageComponent implements OnInit {
 
   user: User = new User();
   username = "";
+  selected = this.user.state;
 
   constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router) { }
 

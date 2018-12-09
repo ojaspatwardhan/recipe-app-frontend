@@ -15,8 +15,8 @@ export class CreateRecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
 
-  constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router, 
-    public dialogRef: MatDialogRef<CreateRecipeComponent>, private recipeService: RecipeServiceClient) { }
+  constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router, private recipeService: RecipeServiceClient,
+  public dialogRef: MatDialogRef<CreateRecipeComponent>) { }
 
   ngOnInit() {
   }
@@ -34,9 +34,4 @@ export class CreateRecipeComponent implements OnInit {
       }
     });
   }
-
-  closeRegisterDialog(): void {
-    this.dialogRef.close();
-  }
-
 }
