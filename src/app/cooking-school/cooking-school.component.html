@@ -22,7 +22,7 @@
                 <br>
                 <h4 class="my-3">Total No Of Schools : <span >{{totalNumberOfSchools | number: '1.0-0'}}</span></h4>
                 <h4>Total No Of Enrollments: <span >{{totalEnrollments}}</span></h4>
-                <div *ngFor="let userName of userNames">
+                <!-- <div *ngFor="let userName of userNames">
                   <div class="row">
                     <div class="col-2">
                       <h4>{{userName}}</h4>
@@ -30,7 +30,7 @@
                     <div class="col-2"><button mat-raised-button color="warn" (click) = "onUnEnroll(">DELETE</button></div>
                   </div>
                   <br>
-                </div>
+                </div> -->
             </div>
             <div class="row card-group" *ngIf = "chefLoaded">
                 <div class="col-7"  *ngFor="let cookingSchool of chefCookingSchools; let i = index">
@@ -40,11 +40,12 @@
                           <h6 class="foodTitle">{{cookingSchool.name}}</h6>
                             <hr>
                             <div class="row">
-                                <div class="col-1"></div>
-                                <div class="col-4 infoText">No Of Seats : <span>{{cookingSchool.noOfSeats | number: '1.0-0'}}</span></div>
+                                <div class="col-4"></div>
+                                <!-- <div class="col-4 infoText">No Of Seats : <span>{{cookingSchool.noOfSeats | number: '1.0-0'}}</span></div>
                                 <div class="col-1 verticalLine"></div>
-                                <div class="col-4 infoText">Duration: <span>{{cookingSchool.duration}}</span></div>
-                                <div class="col-1"></div>
+                                <div class="col-4 infoText">Duration: <span>{{cookingSchool.duration}}</span></div> -->
+                                <div class="col-5"><button mat-raised-button color="primary" (click) = "onViewDetails(cookingSchool)">View Details</button></div>
+                                <div class="col-3"></div>
                             </div>
                             <hr>
                         </mat-card-content>
