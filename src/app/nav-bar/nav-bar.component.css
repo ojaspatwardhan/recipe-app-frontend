@@ -1,3 +1,7 @@
 .mat-input-wrapper{
   height:50px !important;
 }
+
+#ingredientSearch {
+  color: white;
+}

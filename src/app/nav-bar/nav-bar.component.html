@@ -33,7 +33,8 @@
       <button class="mr-4" (click)="openLoginDialog()" type="button" mat-raised-button color="accent" name="login">Log in</button>
       <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button>
       <mat-form-field class="mr-sm-3" color="accent">
-        <input type="text" id="ingredientSearch" matInput placeholder="Search by Recipe" [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName"/>
+        <input type="text" id="ingredientSearch" matInput [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName" />
+        <mat-placeholder class="placeholder" style="color: white;">Search for recipe</mat-placeholder>
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{ option }}
@@ -48,10 +49,11 @@
         <!-- Create Recipe dialog-->
         <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
         <!-- Login & Register dialogs -->
-        <button class="mr-4" type="button" (click)="logout()" mat-raised-button color="accent" name="logout">Log out</button>
+        <button class="mr-4" type="button" (click)="logout()" mat-raised-button color="warn" name="logout">Log out</button>
         <!-- <button class="mr-4" (click)="openRegisterDialog()" type="button" mat-raised-button color="primary" name="register">Register</button> -->
         <mat-form-field class="mr-sm-3" color="accent">
-          <input type="text" id="ingredientSearch" matInput placeholder="Search by Recipe" [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName"/>
+          <input type="text" id="ingredientSearch" matInput [formControl] = "myControl" [matAutocomplete]="auto" [(ngModel)]="enteredRecipeName" />
+          <mat-placeholder class="placeholder" style="color: white;">Search for recipe</mat-placeholder>
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{ option }}
