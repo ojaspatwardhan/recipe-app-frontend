@@ -13,7 +13,7 @@
 
       <div class="row card-group">
           <div class="col-4"  *ngFor="let recipe of retrievedRecipes; let i = index">
-              <mat-card class="example-card" [routerLink] = "['/recipe',recipe.id]">
+              <mat-card class="example-card">
                   <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
                   <mat-card-content>
                     <h6 class="foodTitle">{{recipe.title}}</h6>
@@ -27,7 +27,7 @@
                   </mat-card-content>
                   <mat-card-actions>
                       <button mat-button (click)="onEditRecipe(recipe)">EDIT</button>
-                      <button mat-button>DELETE</button>
+                      <button mat-button (click)="onDeleteRecipe(recipe)">DELETE</button>
                   </mat-card-actions>
                 </mat-card>
                 <br>
