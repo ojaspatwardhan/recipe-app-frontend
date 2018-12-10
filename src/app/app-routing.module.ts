@@ -1,3 +1,4 @@
+import { AboutUsComponent } from './about-us/about-us.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'cooking-school', component: CookingSchoolComponent},
   {path: 'cooking-school/create/:id', component: CreateCoookingSchoolComponent},
   {path: 'school/details/:id', component: ViewCookingSchoolDetailsComponent},
+  {path: 'about-us', component: AboutUsComponent},
   {path: '**', component: HomePageComponent}
 ];
 

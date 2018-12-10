@@ -1,3 +1,4 @@
+import { AdvertisementServiceClient } from './services/advertisement.service.client';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -57,6 +58,8 @@ import { CreateCoookingSchoolComponent } from './create-coooking-school/create-c
 import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details/view-cooking-school-details.component';
 import { EnrolledSchoolsComponent } from './enrolled-schools/enrolled-schools.component';
 import { AdBannerComponent } from './ad-banner/ad-banner.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,8 @@ import { AdBannerComponent } from './ad-banner/ad-banner.component';
     ViewCookingSchoolDetailsComponent,
     EnrolledSchoolsComponent,
     AdBannerComponent
+    AboutUsComponent,
+    ContactUsComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -119,7 +124,8 @@ import { AdBannerComponent } from './ad-banner/ad-banner.component';
     UserServiceClient,
     CookieService,
     RecipeServiceClient,
-    CookingSchoolServiceClient
+    CookingSchoolServiceClient,
+    AdvertisementServiceClient
   ],
   bootstrap: [AppComponent]
 })
