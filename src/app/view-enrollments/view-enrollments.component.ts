@@ -32,12 +32,11 @@ export class ViewEnrollmentsComponent implements OnInit {
       } else {
         this.userId = user._id;
         this.cookingSchoolService.findSchoolByName(schoolName).then((school) => {
-          console.log(school);
           this.cookingSchoolId = school._id;
           this.userService.enrollUserInCookingSchool(this.cookingSchoolId,this.userId).then((response) => {
             console.log(response);
             this.cookingSchoolService.enrollUserThroughAdminInCookingSchool(this.cookingSchoolId,this.userId).then((res) => {
-              console.log(res);
+              window.location.reload();
             });
           });
         });
@@ -54,10 +53,10 @@ export class ViewEnrollmentsComponent implements OnInit {
           this.cookingSchoolService.findSchoolByName(schoolName).then((school) => {
             console.log(school);
             this.cookingSchoolId = school._id;
-            this.userService.unEnrollUserFromCookingSchool(this.cookingSchoolId,this.userId).then((response) => {
+            this.userService.unEnrollUserFromCookingSchool(this.cookingSchoolId, this.userId).then((response) => {
               console.log(response);
-              this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchoolId,this.userId).then((res) => {
-                console.log(res);
+              this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchoolId, this.userId).then((res) => {
+                window.location.reload();
               });
             });
           });
