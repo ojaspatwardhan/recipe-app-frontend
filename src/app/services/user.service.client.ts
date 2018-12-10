@@ -124,6 +124,7 @@ export class UserServiceClient {
   }
 
   enrollUserInCookingSchool(schoolId, id) {
+    console.log(schoolId);
     return fetch("http://localhost:4000/api/user/school/" + id, {
         method: "PUT",
         body: JSON.stringify({
