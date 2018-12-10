@@ -3,6 +3,9 @@ import { User } from '../models/user.model.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { EnrolledSchoolsComponent } from '../enrolled-schools/enrolled-schools.component';
+import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
 
 @Component({
   selector: 'app-profile-page',
@@ -14,13 +17,16 @@ export class ProfilePageComponent implements OnInit {
   user: User = new User();
   username = "";
   selected = this.user.state;
+  userType: string = "";
+  enrolledSchool: any;
+  //Cooking school names array
+  cookingSchools: any[] = new Array();
 
-  constructor(private cookieService: CookieService, private userService: UserServiceClient, private router: Router) { }
+  constructor(public dialog: MatDialog, private cookieService: CookieService, private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient, private router: Router) { }
 
   ngOnInit() {
+    this.userType = this.cookieService.get("userType");
     this.userService.findProfile(this.cookieService.get("username")).then((response) => {
-      console.log(this.cookieService.get("username"));
-      console.log(response + " " + "response");
       this.user = response;
     });
   }
@@ -36,6 +42,27 @@ export class ProfilePageComponent implements OnInit {
 
   viewRecipes(){
     this.router.navigate(['/view-recipe']);
+  }
+
+  openEnrolledSchoolsDialog(): void {
+    this.userService.findProfile(this.user.username).then((user) => {
+      this.enrolledSchool = user.enrolledSchool;
+      this.enrolledSchool.forEach((element) => {
+        console.log(element + " " + "element");
+        this.cookingSchoolService.findCookingSchoolById(element).then((school) => {
+          console.log(school + " " + "school");
+          this.cookingSchools.push(school.name);
+        });
+      });
+      console.log(this.cookingSchools);
+      const dialogRef = this.dialog.open(EnrolledSchoolsComponent, {
+        width: '500px',
+        height: '350px',
+        data: {
+          school: this.cookingSchools
+        }
+      });
+    });
   }
 
 }

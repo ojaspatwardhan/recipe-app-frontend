@@ -21,7 +21,8 @@ import {
   MatAutocompleteModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatListModule
 } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
@@ -54,6 +55,8 @@ import { ViewEnrollmentsComponent } from './view-enrollments/view-enrollments.co
 import { CookingSchoolComponent } from './cooking-school/cooking-school.component';
 import { CreateCoookingSchoolComponent } from './create-coooking-school/create-coooking-school.component';
 import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details/view-cooking-school-details.component';
+import { EnrolledSchoolsComponent } from './enrolled-schools/enrolled-schools.component';
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
 
 @NgModule({
   declarations: [
@@ -79,13 +82,16 @@ import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details
     ViewEnrollmentsComponent,
     CookingSchoolComponent,
     CreateCoookingSchoolComponent,
-    ViewCookingSchoolDetailsComponent
+    ViewCookingSchoolDetailsComponent,
+    EnrolledSchoolsComponent,
+    AdBannerComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
     CreateRecipeComponent,
-    EditRecipeAdminComponent
+    EditRecipeAdminComponent,
+    EnrolledSchoolsComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +111,8 @@ import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details
     ReactiveFormsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [
     SpoonacularServiceClient,

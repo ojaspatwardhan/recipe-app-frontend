@@ -20,6 +20,7 @@ export class NavBarComponent implements OnInit {
 
   //Cookie value
   cookieValue: string = "";
+  userType: string = "";
 
   opened: boolean;
   ingredientControl;
@@ -33,6 +34,8 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.cookieValue = this.cookieService.get("username");
+    this.userType = this.cookieService.get("userType");
+    console.log(this.userType + " " + "user type");
     console.log(this.cookieValue);
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -43,6 +46,7 @@ export class NavBarComponent implements OnInit {
 
   logout() {
     this.cookieService.delete("username");
+    this.cookieService.delete("userType");
     this.userService.logout().then(() => {
       this.router.navigate(['home']);
     });

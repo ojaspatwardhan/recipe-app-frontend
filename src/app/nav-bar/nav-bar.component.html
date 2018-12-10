@@ -39,6 +39,7 @@
     <ng-template #loggedIn>
       <form class="form-inline my-2 my-lg-0">
         <!-- Create Recipe dialog-->
+        <button mat-raised-button color="accent" class="mr-4" type="button" name="profile" *ngIf="userType == 'user' || userType == 'chef' && cookieValue != ''" [routerLink]="['/profile']">Profile</button>
         <button class="mr-4" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
         <!-- Login & Register dialogs -->
         <button class="mr-4" type="button" (click)="logout()" mat-raised-button color="warn" name="logout">Log out</button>
