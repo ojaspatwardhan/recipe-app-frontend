@@ -40,6 +40,6 @@
   </div>
   <div class="row">
     <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="primary" (click)="enrollUser(cookingSchool.title, user.username)">Enroll</button>
-    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="warn">UnEnroll</button>
+    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="warn" (click) = "unenrollUser(cookingSchool.title, user.username)">UnEnroll</button>
   </div>
 </div>

@@ -34,9 +34,35 @@ export class ViewEnrollmentsComponent implements OnInit {
         this.cookingSchoolService.findSchoolByName(schoolName).then((school) => {
           console.log(school);
           this.cookingSchoolId = school._id;
+          this.userService.enrollUserInCookingSchool(this.cookingSchoolId,this.userId).then((response) => {
+            console.log(response);
+            this.cookingSchoolService.enrollUserThroughAdminInCookingSchool(this.cookingSchoolId,this.userId).then((res) => {
+              console.log(res);
+            });
+          });
         });
       }
     });
+  }
+
+    unenrollUser(schoolName, username) {
+      this.userService.findProfile(username).then((user) => {
+        if (!user) {
+          window.alert("user does not exist");
+        } else {
+          this.userId = user._id;
+          this.cookingSchoolService.findSchoolByName(schoolName).then((school) => {
+            console.log(school);
+            this.cookingSchoolId = school._id;
+            this.userService.unEnrollUserFromCookingSchool(this.cookingSchoolId,this.userId).then((response) => {
+              console.log(response);
+              this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchoolId,this.userId).then((res) => {
+                console.log(res);
+              });
+            });
+          });
+        }
+      });
   }
 
 }

@@ -149,6 +149,20 @@ export class CookingSchoolServiceClient {
         }).then(response => response.json());
     }
 
+    enrollUserThroughAdminInCookingSchool(cookingSchoolId, userId) {
+        console.log("Enroll user through admin cooking school client" + " " + cookingSchoolId);
+          return fetch("http://localhost:4000/api/cooking-school/school/admin/enroll", {
+              method: "PUT",
+              credentials: "include",
+              body: JSON.stringify({
+                id: userId,
+                schoolId: cookingSchoolId
+              }),
+              headers: {
+                  "Content-Type": "application/json"
+              }
+          }).then(response => response.json());
+      }
 
     // findProfile(username) {
     //   return fetch("http://localhost:4000/api/user/profile/" + username, {
