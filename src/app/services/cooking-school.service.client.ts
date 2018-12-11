@@ -7,11 +7,11 @@ export class CookingSchoolServiceClient {
   heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
   */
     findSchoolByName(name) {
-      return fetch("http://localhost:4000/api/cooking-school/name/" + name).then((response) => response.json());
+      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/name/" + name).then((response) => response.json());
     }
 
     createCookingSchool(cookingSchool) {
-      return fetch("http://localhost:4000/api/cooking-school", {
+      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school", {
         method: "POST",
         body: JSON.stringify(cookingSchool),
         headers: {
@@ -23,19 +23,19 @@ export class CookingSchoolServiceClient {
     }
 
     findAllCookingSchool(){
-        return fetch("http://localhost:4000/api/cooking-school/").then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/").then((response) => response.json());
     }
 
     findCookingSchoolByChef(id){
-        return fetch("http://localhost:4000/api/cooking-school/" + id).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/" + id).then((response) => response.json());
     }
 
     findCookingSchoolById(id){
-        return fetch("http://localhost:4000/api/cooking-school/school/" + id).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/school/" + id).then((response) => response.json());
     }
 
     updateCookingSchool(cookingSchool){
-        return fetch("http://localhost:4000/api/cooking-school/"+cookingSchool._id,{
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/"+cookingSchool._id,{
             method: "PUT",
             credentials: "include",
             body: JSON.stringify(cookingSchool),
@@ -46,14 +46,14 @@ export class CookingSchoolServiceClient {
     }
 
     deleteCookingSchool(id){
-        return fetch("http://localhost:4000/api/cooking-school/" + id, {
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/" + id, {
             method: "DELETE"
         }).then(response => response.json());
     }
 
     enrollUserInCookingSchool(cookingSchool) {
       console.log("cooking school client" + " " + cookingSchool);
-        return fetch("http://localhost:4000/api/cooking-school/user/" + cookingSchool._id, {
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/user/" + cookingSchool._id, {
             method: "PUT",
             credentials: "include",
             body: JSON.stringify(cookingSchool),
@@ -65,7 +65,7 @@ export class CookingSchoolServiceClient {
 
     unEnrollUserInCookingSchool(cookingSchool, userId) {
       console.log("cooking school client" + " " + cookingSchool + "userId" + userId);
-        return fetch("http://localhost:4000/api/cooking-school/school/unenroll", {
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/school/unenroll", {
             method: "PUT",
             credentials: "include",
             body: JSON.stringify({
@@ -80,7 +80,7 @@ export class CookingSchoolServiceClient {
 
     enrollUserThroughAdminInCookingSchool(cookingSchoolId, userId) {
         console.log("Enroll user through admin cooking school client" + " " + cookingSchoolId);
-          return fetch("http://localhost:4000/api/cooking-school/school/admin/enroll", {
+          return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/cooking-school/school/admin/enroll", {
               method: "PUT",
               credentials: "include",
               body: JSON.stringify({
