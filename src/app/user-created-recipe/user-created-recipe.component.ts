@@ -23,6 +23,7 @@ export class UserCreatedRecipeComponent implements OnInit {
       if(!retrievedRecipe.hasOwnProperty('message')){
         this.retrievedRecipe = retrievedRecipe;
         this.retrievedIngredients = this.retrievedRecipe.extendedIngredients;
+        console.log(this.retrievedIngredients);
         this.loaded = true;
       }
     });

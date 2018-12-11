@@ -3,7 +3,7 @@ import { Recipe } from "../models/recipe.model.client";
 export class CookingSchoolServiceClient {
 
   /*
-  local url - http://localhost:4200/
+  local url - http://localhost:4000/
   heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
   */
     findSchoolByName(name) {
