@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   recipes: any;
+
   constructor(private userService: UserServiceClient, private router: Router, private recipeService: SpoonacularServiceClient) { }
 
   ngOnInit() {

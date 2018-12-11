@@ -76,11 +76,17 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="form-row">
+    <div class="form-row" *ngIf="userType == 'user'">
         <button mat-raised-button color="primary" class="col-12 my-4" (click) = "viewRecipes()">View your created recipes</button>
     </div>
-    <div class="form-row" *ngIf="userType != 'chef'">
+    <div class="form-row" *ngIf="userType == 'user'">
       <button mat-raised-button color="secondary" class="col-12 my-4" (click) = "openEnrolledSchoolsDialog()">View Enrolled Schools</button>
+    </div>
+    <div class="form-row" *ngIf="userType == 'advertiser'">
+      <button mat-raised-button color="secondary" class="col-12 my-4" (click) = "openCreateAdDialog()">Create ad</button>
+    </div>
+    <div class="form-row" *ngIf="userType == 'admin'">
+      <button mat-raised-button color="secondary" class="col-12 my-4" [routerLink]="['/admin-page']">Admin Page</button>
     </div>
     <div class="form-row">
       <button mat-raised-button color="accent" class="col-12 my-4" (click) = "updateUser(user)">Update</button>

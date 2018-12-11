@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { EnrolledSchoolsComponent } from '../enrolled-schools/enrolled-schools.component';
+import { CreateAdComponent } from '../create-ad/create-ad.component';
 import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
 
 @Component({
@@ -48,13 +49,10 @@ export class ProfilePageComponent implements OnInit {
     this.userService.findProfile(this.user.username).then((user) => {
       this.enrolledSchool = user.enrolledSchool;
       this.enrolledSchool.forEach((element) => {
-        console.log(element + " " + "element");
         this.cookingSchoolService.findCookingSchoolById(element).then((school) => {
-          console.log(school + " " + "school");
           this.cookingSchools.push(school.name);
         });
       });
-      console.log(this.cookingSchools);
       const dialogRef = this.dialog.open(EnrolledSchoolsComponent, {
         width: '500px',
         height: '350px',
@@ -62,6 +60,13 @@ export class ProfilePageComponent implements OnInit {
           school: this.cookingSchools
         }
       });
+    });
+  }
+
+  openCreateAdDialog(): void {
+    const dialogRef = this.dialog.open(CreateAdComponent, {
+      width: '500px',
+      height: '350px'
     });
   }
 

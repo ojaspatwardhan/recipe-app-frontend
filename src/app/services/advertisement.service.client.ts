@@ -11,6 +11,7 @@ export class AdvertisementServiceClient {
     }
 
     createAdvertisement(advertisement) {
+      console.log(advertisement);
       return fetch("http://localhost:4000/api/advertisement", {
         method: "POST",
         body: JSON.stringify(advertisement),
@@ -22,7 +23,7 @@ export class AdvertisementServiceClient {
       });
     }
 
-    findAllAdvertisement(){
+    findAllAdvertisement() {
         return fetch("http://localhost:4000/api/advertisement/").then((response) => response.json());
     }
 

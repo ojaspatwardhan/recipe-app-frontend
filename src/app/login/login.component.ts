@@ -27,7 +27,11 @@ export class LoginComponent implements OnInit {
       this.cookieService.set("userId", user.userId);
       this.cookieService.set("userType", user.role);
       this.dialogRef.close();
-      this.router.navigate(['profile']);
+      if (user.role === "admin") {
+        this.router.navigate(['admin-page']);
+      } else {
+        this.router.navigate(['profile']);
+      }
     });
   }
 

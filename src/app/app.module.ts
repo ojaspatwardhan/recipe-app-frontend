@@ -60,6 +60,7 @@ import { EnrolledSchoolsComponent } from './enrolled-schools/enrolled-schools.co
 import { AdBannerComponent } from './ad-banner/ad-banner.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CreateAdComponent } from './create-ad/create-ad.component';
 
 @NgModule({
   declarations: [
@@ -87,16 +88,18 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     CreateCoookingSchoolComponent,
     ViewCookingSchoolDetailsComponent,
     EnrolledSchoolsComponent,
-    AdBannerComponent
+    AdBannerComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CreateAdComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
     CreateRecipeComponent,
     EditRecipeAdminComponent,
-    EnrolledSchoolsComponent
+    EnrolledSchoolsComponent,
+    CreateAdComponent
   ],
   imports: [
     BrowserModule,

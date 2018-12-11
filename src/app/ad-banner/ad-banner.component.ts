@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdvertisementServiceClient } from '../services/advertisement.service.client';
 
 @Component({
   selector: 'app-ad-banner',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdBannerComponent implements OnInit {
 
-  constructor() { }
+  advertisements: any[];
+
+  constructor(private adService: AdvertisementServiceClient) { }
 
   ngOnInit() {
+    this.adService.findAllAdvertisement().then((advertisements) => {
+      this.advertisements = advertisements;
+    });
   }
-
 }
