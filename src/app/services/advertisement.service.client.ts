@@ -7,12 +7,12 @@ export class AdvertisementServiceClient {
 
 
     findAdvertisementByName(name) {
-      return fetch("http://localhost:4200/api/advertisement/" + name).then((response) => response.json());
+      return fetch("http://localhost:4000/api/advertisement/" + name).then((response) => response.json());
     }
 
     createAdvertisement(advertisement) {
       console.log(advertisement);
-      return fetch("http://localhost:4200/api/advertisement", {
+      return fetch("http://localhost:4000/api/advertisement", {
         method: "POST",
         body: JSON.stringify(advertisement),
         headers: {
@@ -24,15 +24,15 @@ export class AdvertisementServiceClient {
     }
 
     findAllAdvertisement() {
-        return fetch("http://localhost:4200/api/advertisement/").then((response) => response.json());
+        return fetch("http://localhost:4000/api/advertisement/").then((response) => response.json());
     }
 
     findAdvertisementById(id){
-        return fetch("http://localhost:4200/api/advertisement/" + id).then((response) => response.json());
+        return fetch("http://localhost:4000/api/advertisement/" + id).then((response) => response.json());
     }
 
     updateAdvertisement(advertisement){
-        return fetch("http://localhost:4200/api/advertisement/"+advertisement._id,{
+        return fetch("http://localhost:4000/api/advertisement/"+advertisement._id,{
             method: "PUT",
             credentials: "include",
             body: JSON.stringify(advertisement),
@@ -43,7 +43,7 @@ export class AdvertisementServiceClient {
     }
 
     deleteAdvertisement(id){
-        return fetch("http://localhost:4200/api/advertisement/" + id, {
+        return fetch("http://localhost:4000/api/advertisement/" + id, {
             method: "DELETE"
         }).then(response => response.json());
     }
