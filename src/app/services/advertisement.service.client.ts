@@ -1,18 +1,18 @@
 export class AdvertisementServiceClient {
 
   /*
-  local url - http://localhost:4000/
+  local url - https://dbms-recipe-app-backend.herokuapp.com/
   heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
   */
 
 
     findAdvertisementByName(name) {
-      return fetch("http://localhost:4000/api/advertisement/" + name).then((response) => response.json());
+      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/" + name).then((response) => response.json());
     }
 
     createAdvertisement(advertisement) {
       console.log(advertisement);
-      return fetch("http://localhost:4000/api/advertisement", {
+      return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement", {
         method: "POST",
         body: JSON.stringify(advertisement),
         headers: {
@@ -24,15 +24,15 @@ export class AdvertisementServiceClient {
     }
 
     findAllAdvertisement() {
-        return fetch("http://localhost:4000/api/advertisement/").then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/").then((response) => response.json());
     }
 
     findAdvertisementById(id){
-        return fetch("http://localhost:4000/api/advertisement/" + id).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/" + id).then((response) => response.json());
     }
 
     updateAdvertisement(advertisement){
-        return fetch("http://localhost:4000/api/advertisement/"+advertisement._id,{
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/"+advertisement._id,{
             method: "PUT",
             credentials: "include",
             body: JSON.stringify(advertisement),
@@ -43,7 +43,7 @@ export class AdvertisementServiceClient {
     }
 
     deleteAdvertisement(id){
-        return fetch("http://localhost:4000/api/advertisement/" + id, {
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/" + id, {
             method: "DELETE"
         }).then(response => response.json());
     }

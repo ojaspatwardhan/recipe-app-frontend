@@ -1,7 +1,7 @@
 export class UserServiceClient {
 
   /*
-  local url - http://localhost:4000/
+  local url - https://dbms-recipe-app-backend.herokuapp.com/
   heroku url -  https://dbms-recipe-app-backend.herokuapp.com/
   */
 
@@ -28,7 +28,7 @@ export class UserServiceClient {
   //User methods
 
   logout() {
-    return fetch("http://localhost:4000/api/user/logout", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/logout", {
       method: "POST",
       credentials: "include"
     });
@@ -36,7 +36,7 @@ export class UserServiceClient {
 
   removeUser(id) {
     console.log(id);
-    return fetch("http://localhost:4000/api/user/" + id, {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/" + id, {
       method: "DELETE"
     })
     .then(response => response.text());
@@ -52,7 +52,7 @@ export class UserServiceClient {
       address_1: address,
       role: role
     };
-    return fetch("http://localhost:4000/api/user/admin", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/admin", {
       body: JSON.stringify(user),
       credentials: "include",
       method: "POST",
@@ -63,19 +63,19 @@ export class UserServiceClient {
   }
 
   findUserById(id) {
-    return fetch("http://localhost:4000/api/user/id/" + id).then((response) => response.json());
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/id/" + id).then((response) => response.json());
   }
 
   findAllUsers() {
     // console.log("inside findAllUsers");
-    return fetch("http://localhost:4000/api/user/users", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/users", {
       credentials: "include"
     }).then((response) => response.json());
   }
 
   updateUser(user) {
     console.log("inside updateUser");
-    return fetch("http://localhost:4000/api/user/" + user._id, {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/" + user._id, {
       method: "PUT",
       credentials: "include",
       body: JSON.stringify(user),
@@ -90,7 +90,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch("http://localhost:4000/api/user/signup", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/signup", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -102,7 +102,7 @@ export class UserServiceClient {
   }
 
   findProfile(username) {
-    return fetch("http://localhost:4000/api/user/profile/" + username, {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/profile/" + username, {
       method: "GET"
     }).then((response) => response.json());
   }
@@ -112,7 +112,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch("http://localhost:4000/api/user/login", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/login", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -125,7 +125,7 @@ export class UserServiceClient {
 
   enrollUserInCookingSchool(schoolId, id) {
     console.log(schoolId);
-    return fetch("http://localhost:4000/api/user/school/" + id, {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/school/" + id, {
         method: "PUT",
         body: JSON.stringify({
           schoolId: schoolId,
@@ -140,7 +140,7 @@ export class UserServiceClient {
 
   unEnrollUserFromCookingSchool(schoolId, id) {
     console.log(id + " " + "inside user");
-    return fetch("http://localhost:4000/api/user/user/unenroll", {
+    return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/user/user/unenroll", {
         method: "PUT",
         body: JSON.stringify({
           schoolId: schoolId,
