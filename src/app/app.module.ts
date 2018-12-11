@@ -62,6 +62,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-recipe.component';
+import { ContactUsServiceClient } from './services/contact-us.service.client';
 
 @NgModule({
   declarations: [
@@ -130,7 +131,8 @@ import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-r
     CookieService,
     RecipeServiceClient,
     CookingSchoolServiceClient,
-    AdvertisementServiceClient
+    AdvertisementServiceClient,
+    ContactUsServiceClient
   ],
   bootstrap: [AppComponent]
 })
