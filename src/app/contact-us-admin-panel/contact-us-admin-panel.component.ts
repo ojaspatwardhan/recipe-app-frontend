@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactUsServiceClient } from '../services/contact-us.service.client';
 
 @Component({
   selector: 'app-contact-us-admin-panel',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsAdminPanelComponent implements OnInit {
 
-  constructor() { }
+  queries: any;
+
+  constructor(private contactUsService: ContactUsServiceClient) { }
 
   ngOnInit() {
+    this.contactUsService.findAllQuery().then((queries) => {
+      this.queries = queries;
+    });
   }
 
 }

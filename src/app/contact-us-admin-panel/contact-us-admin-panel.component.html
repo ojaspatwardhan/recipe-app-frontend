@@ -10,10 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">as</th>
-      <td>as</td>
-      <td><button mat-raised-button color="primary" class="col-8 ml-4" >Reply</button></td>
+    <tr *ngFor="let query of queries">
+      <th scope="row">{{query.email}}</th>
+      <td>{{query.text}}</td>
+      <td><button mat-raised-button color="primary" class="col-8 mx-2">Reply</button></td>
     </tr>
   </tbody>
 </table>
