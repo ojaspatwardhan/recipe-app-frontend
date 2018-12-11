@@ -62,11 +62,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-recipe.component';
-<<<<<<< HEAD
 import { ContactUsServiceClient } from './services/contact-us.service.client';
-=======
 import { ContactUsAdminPanelComponent } from './contact-us-admin-panel/contact-us-admin-panel.component';
->>>>>>> 0708a2353fd9c1054983f3cb0deecaf407b8995a
 
 @NgModule({
   declarations: [
