@@ -15,6 +15,8 @@ import { CookingSchoolComponent } from './cooking-school/cooking-school.componen
 import { CreateCoookingSchoolComponent } from './create-coooking-school/create-coooking-school.component';
 import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details/view-cooking-school-details.component';
 import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-recipe.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactUsAdminPanelComponent } from './contact-us-admin-panel/contact-us-admin-panel.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path: 'cooking-school/create/:id', component: CreateCoookingSchoolComponent},
   {path: 'school/details/:id', component: ViewCookingSchoolDetailsComponent},
   {path: 'about-us', component: AboutUsComponent},
+  {path: 'contact-us', component: ContactUsComponent},
+  {path: 'contact-us-admin-panel', component: ContactUsAdminPanelComponent},
   {path: '**', component: HomePageComponent}
 ];
 

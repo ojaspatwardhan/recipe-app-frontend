@@ -48,7 +48,11 @@ export class NavBarComponent implements OnInit {
     this.cookieService.delete("username");
     this.cookieService.delete("userType");
     this.userService.logout().then(() => {
-      this.router.navigate(['home']);
+      if (this.router.url === '/home') {
+        window.location.reload();
+      } else {
+        this.router.navigate(['home']);
+      }
     });
   }
 
