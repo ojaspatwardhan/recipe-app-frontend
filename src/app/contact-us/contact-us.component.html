@@ -41,7 +41,7 @@
             </mat-form-field>
             <mat-form-field hintLabel="Query" appearance="legacy" class="col-12 my-2">
               <mat-label>Ask us a question</mat-label>
-              <textarea matInput id="query" rows="5" [(ngModel)]="query.text" placeholder="Please type your question here"></textarea>
+              <textarea matInput id="query" rows="5" [(ngModel)]="query.query" placeholder="Please type your question here"></textarea>
             </mat-form-field>
             <div class="col-12 my-2">
               <button mat-raised-button color="accent" (click)="sendQuery(query)">Send</button>
