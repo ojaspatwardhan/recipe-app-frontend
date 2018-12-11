@@ -33,13 +33,13 @@
       <div class="row">
         <mat-form-field class="col-md-12" appearance="legacy" color="primary">
           <mat-label>Cooking School Name</mat-label>
-          <input [(ngModel)]="cookingSchool.title" id="schoolName" type="text" matInput />
+          <input [(ngModel)]="cookingSchool.name" id="schoolName" type="text" matInput />
         </mat-form-field>
       </div>
     </div>
   </div>
   <div class="row">
-    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="primary" (click)="enrollUser(cookingSchool.title, user.username)">Enroll</button>
-    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="warn" (click) = "unenrollUser(cookingSchool.title, user.username)">UnEnroll</button>
+    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="primary" (click)="enrollUser(cookingSchool.name, user.username)">Enroll</button>
+    <button mat-raised-button type="button" class="col-4 ml-4 my-4" color="warn" (click) = "unenrollUser(cookingSchool.name, user.username)">UnEnroll</button>
   </div>
 </div>
