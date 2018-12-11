@@ -3,8 +3,8 @@
     <app-nav-bar></app-nav-bar>
   </header>
   <form class="form-inline my-2">
-    <input class="form-control col-4" name="appointment" type="search" placeholder="Enter customer name with capitalization" />
-    <input class="form-control col-4 ml-2 mr-2" name="status" type="search" placeholder="Enter appointment status e.g BK, CN, IN" />
+    <input class="form-control col-4" name="appointment" type="search" placeholder="Enter recipe" />
+    <button class="col-3 mx-2" type="button" mat-raised-button color="accent" name="button" [routerLink]="['/contact-us-admin-panel']">View Contact Us</button>
     <button type="button" class="btn btn-md btn-outline-dark ml-2" [routerLink]="['/view-enrollments']">Create/ Edit Enrollments</button>
     <button type="button" class="btn btn-md btn-outline-info ml-2" routerLink="/edit-user">Create/ Edit User</button>
   </form>
