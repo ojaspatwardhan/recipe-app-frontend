@@ -61,6 +61,7 @@ import { AdBannerComponent } from './ad-banner/ad-banner.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
+import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-recipe.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { CreateAdComponent } from './create-ad/create-ad.component';
     AdBannerComponent,
     AboutUsComponent,
     ContactUsComponent,
-    CreateAdComponent
+    CreateAdComponent,
+    UserCreatedRecipeComponent
   ],
   entryComponents: [
     LoginComponent,

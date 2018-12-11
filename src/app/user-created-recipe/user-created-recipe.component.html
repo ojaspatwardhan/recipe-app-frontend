@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <header>
+      <app-nav-bar></app-nav-bar>
+    </header>
+        <br>
+        <h3 *ngIf="!loaded">No recipe exists</h3>
+              <div class="jumbotron" *ngIf = "loaded">
+                  <div class="row">
+                    <div class="col-6">
+                        <h2 class="recipeTitle" *ngIf = "loaded">{{retrievedRecipe.title}}</h2>
+                        <br><br>
+                        <h4>Ready In Minutes : <span *ngIf = "loaded">{{retrievedRecipe.readyInMinutes | number: '1.0-0'}}</span></h4>
+                        <h4>Servings: <span *ngIf = "loaded">{{retrievedRecipe.servings}}</span></h4>
+                        <!-- <div *ngIf = "loaded" [innerHtml] = "retrievedRecipeInfo.summary"></div> -->
+                    </div>
+                    <div class="col-6">
+                        <img *ngIf = "loaded" src = {{retrievedRecipe.image}} alt="food" class="recipeImage rounded" />
+                    </div>
+                  </div>
+                  <br>
+                  <hr class="my-4">
+                  <div class="row infoRow">
+                    <div class="col-5 ingredientContent">
+                      <h2>Ingredients</h2>
+                      <div *ngFor="let ingredient of retrievedIngredients">
+                        <p class="ingredientFont">
+                          <span>{{ingredient.amount}} </span><span>{{ingredient.unit}} </span><span>{{ingredient.name}}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5">
+                      <!-- <h2>Nutrition</h2>
+                      <div [innerHtml] = "nutriBody | sanitizeHtmlPipe"></div> -->
+                    </div>
+                  </div>
+                  <hr class="my-4">
+                  <h2>Direction</h2>
+                  <p *ngIf = "loaded">{{retrievedRecipe.instructions}}</p>
+                </div>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+  </div>
+  

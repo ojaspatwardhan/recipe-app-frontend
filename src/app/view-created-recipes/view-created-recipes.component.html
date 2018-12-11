@@ -14,7 +14,7 @@
       <div class="row card-group">
           <div class="col-4"  *ngFor="let recipe of retrievedRecipes; let i = index">
               <mat-card class="example-card">
-                  <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
+                  <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" [routerLink] = "['/user-recipe',recipe.id]" />
                   <mat-card-content>
                     <h6 class="foodTitle">{{recipe.title}}</h6>
                       <hr>
