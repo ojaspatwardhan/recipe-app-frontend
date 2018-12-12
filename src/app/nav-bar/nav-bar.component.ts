@@ -24,7 +24,7 @@ export class NavBarComponent implements OnInit {
 
   opened: boolean;
   ingredientControl;
-  options: string[] = ["Option 1", "Option 2", "Option 3"];
+  options: string[] = ["Pizza", "Pasta", "Burger"];
   enteredRecipeName: String;
 
   myControl = new FormControl();
