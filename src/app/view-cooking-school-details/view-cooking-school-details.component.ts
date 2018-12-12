@@ -23,7 +23,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
 
   constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
     private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient,
-  private userRecipeService: RecipeServiceClient, private cookieService: CookieService) 
+  private userRecipeService: RecipeServiceClient, private cookieService: CookieService)
   {
       this.isLoaded = false;
     }
@@ -83,9 +83,10 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   onDeleteRecipe() {
     this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
       response.forEach(element => {
-        if(this.recipes.indexOf(element) !== -1){
+        console.log("inside forEach onDeleteRecipe");
+        if(this.recipes.indexOf(element) !== -1) {
           this.recipes.splice(this.recipes.indexOf(element),1);
-          this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
+          this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId, element._id);
           console.log(this.recipes);
         }
     });

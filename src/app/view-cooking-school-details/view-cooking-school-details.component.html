@@ -20,10 +20,9 @@
 <hr>
 <div class="container">
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary" (click) = "onAddRecipe()">Add Recipe</button>
-        <button type="button" class="btn btn-warning mx-2" (click) = "onDeleteRecipe()">Delete Recipe</button>
-
-      </div>
+        <button type="button" mat-raised-button color="secondary" (click) = "onAddRecipe()">Add Recipe</button>
+        <button type="button" mat-raised-button color="warn" class="mx-2" (click) = "onDeleteRecipe()">Delete Recipe</button>
+    </div>
 </div>
 <hr>
 <div class="container-fluid" *ngIf = "isLoaded">
@@ -50,4 +49,3 @@
   <app-footer></app-footer>
 </div>
 </div>
-
