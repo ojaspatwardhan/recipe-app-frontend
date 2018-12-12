@@ -67,6 +67,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
         this.cookingSchoolService.findCookingSchoolById(this.cookingSchoolId).then((cookingSchool) => {
           this.users = cookingSchool.enrolledUsers;
           this.cookingSchool = cookingSchool;
+          window.location.reload();
         });
       });
     });
