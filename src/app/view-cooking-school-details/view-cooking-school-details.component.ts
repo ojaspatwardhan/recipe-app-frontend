@@ -1,9 +1,11 @@
+import { RecipeServiceClient } from './../services/recipe.service.client';
 import { Component, OnInit } from '@angular/core';
 import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookingSchool } from '../models/cooking-school.model.client';
 import { SpoonacularServiceClient } from '../services/spoonacular.service.client';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-view-cooking-school-details',
@@ -16,11 +18,13 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   users: any[] = new Array();
   finalUsersArray: any[] = new Array();
   cookingSchool: any;
-  recipes: any;
+  recipes: any[] = new Array();
   isLoaded: boolean;
 
   constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
-    private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient) {
+    private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient,
+  private userRecipeService: RecipeServiceClient, private cookieService: CookieService) 
+  {
       this.isLoaded = false;
     }
 
@@ -37,7 +41,15 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
     });
 
     this.recipeService.getNumberOfRecipe(5).then((result) => {
-      this.recipes = result.recipes;
+      result.recipes.forEach(ele => {
+        this.recipes.push(ele);
+      });
+      // this.recipes = result.recipes;
+      this.cookingSchoolService.getRecipeFromCookingSchool(this.cookingSchoolId).then((re) => {
+        re.recipes.forEach(element => {
+          this.recipes.push(element);
+        });
+      });
       this.isLoaded = true;
   });
 }
@@ -55,4 +67,28 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       });
     });
   }
+
+  onAddRecipe() {
+    console.log(this.cookieService.get("userId"));
+    this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
+      response.forEach(element => {
+        if(!this.recipes.includes(element)){
+          this.recipes.push(element);
+          this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId,element._id);
+        }
+      });
+    });
+  }
+
+  onDeleteRecipe() {
+    this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
+      response.forEach(element => {
+        if(this.recipes.indexOf(element) !== -1){
+          this.recipes.splice(this.recipes.indexOf(element),1);
+          this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
+          console.log(this.recipes);
+        }
+    });
+  });
+}
 }

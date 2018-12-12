@@ -18,6 +18,14 @@
 </div>
 </div>
 <hr>
+<div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" (click) = "onAddRecipe()">Add Recipe</button>
+        <button type="button" class="btn btn-warning mx-2" (click) = "onDeleteRecipe()">Delete Recipe</button>
+
+      </div>
+</div>
+<hr>
 <div class="container-fluid" *ngIf = "isLoaded">
   <h3> Recipes you will teach at this school.</h3>
 <div class="row card-group">
