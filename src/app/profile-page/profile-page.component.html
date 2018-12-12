@@ -76,7 +76,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="form-row" *ngIf="userType == 'user'">
+    <div class="form-row" *ngIf="userType == 'user' || userType == 'chef'">
         <button mat-raised-button color="primary" class="col-12 my-4" (click) = "viewRecipes()">View your created recipes</button>
     </div>
     <div class="form-row" *ngIf="userType == 'user'">
