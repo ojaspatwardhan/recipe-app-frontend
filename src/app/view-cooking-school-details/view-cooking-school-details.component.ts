@@ -20,6 +20,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   cookingSchool: any;
   recipes: any[] = new Array();
   isLoaded: boolean;
+  recipeIds: any[] = new Array();
 
   constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
     private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient,
@@ -43,11 +44,14 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
     this.recipeService.getNumberOfRecipe(5).then((result) => {
       result.recipes.forEach(ele => {
         this.recipes.push(ele);
+        this.recipeIds.push(ele.id);
       });
       // this.recipes = result.recipes;
       this.cookingSchoolService.getRecipeFromCookingSchool(this.cookingSchoolId).then((re) => {
+        console.log(re);
         re.recipes.forEach(element => {
           this.recipes.push(element);
+          this.recipeIds.push(element._id);
         });
       });
       this.isLoaded = true;
@@ -72,8 +76,9 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
     console.log(this.cookieService.get("userId"));
     this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
       response.forEach(element => {
-        if(!this.recipes.includes(element)){
+        if(this.recipeIds.indexOf(element._id) === -1){
           this.recipes.push(element);
+          this.recipeIds.push(element._id);
           this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId,element._id);
         }
       });
@@ -83,8 +88,9 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   onDeleteRecipe() {
     this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
       response.forEach(element => {
-        if(this.recipes.indexOf(element) !== -1){
+        if(this.recipeIds.indexOf(element._id) !== -1){
           this.recipes.splice(this.recipes.indexOf(element),1);
+          this.recipeIds.splice(this.recipeIds.indexOf(element._id),1);
           this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
           console.log(this.recipes);
         }
