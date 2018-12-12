@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <header>
+    <app-nav-bar></app-nav-bar>
+  </header>
+  <table class="table table-bordered table-dark my-4">
+  <thead>
+    <tr>
+      <th scope="col">Ad Name</th>
+      <th scope="col">Created By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let advertisement of advertisements">
+      <th scope="row">{{advertisement.name}}</th>
+      <td>{{advertisement.createdBy}}</td>
+      <td><button mat-raised-button class="col-10 mx-4" type="button" color="legacy" (click)="openEditAdDialog(advertisement)">Edit</button></td>
+      <td><button mat-raised-button class="col-10 mx-4" type="button" color="warn" (click)="deleteAd(advertisement)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+<app-footer></app-footer>
+</div>

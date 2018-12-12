@@ -83,6 +83,9 @@
       <button mat-raised-button color="secondary" class="col-12 my-4" (click) = "openEnrolledSchoolsDialog()">View Enrolled Schools</button>
     </div>
     <div class="form-row" *ngIf="userType == 'advertiser'">
+      <button mat-raised-button color="primary" class="col-12 my-4" [routerLink]="['/edit-ad']">View Listed Ads</button>
+    </div>
+    <div class="form-row" *ngIf="userType == 'advertiser'">
       <button mat-raised-button color="secondary" class="col-12 my-4" (click) = "openCreateAdDialog()">Create ad</button>
     </div>
     <div class="form-row" *ngIf="userType == 'admin'">

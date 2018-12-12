@@ -14,7 +14,7 @@
         <h3>There are currently no cooking schools</h3>
       </div>
       <div class="jumbotron" *ngIf = "chefLoaded">
-          <h4 class="center" style="text-align: center">{{chefName}}s cooking school</h4>
+          <h4 class="text-center">{{chefName}}'s cooking school</h4>
           <br>
           <div class="row">
             <div class="col-5">
@@ -30,13 +30,15 @@
                         <mat-card-content>
                           <h6 class="foodTitle">{{cookingSchool.name}}</h6>
                             <hr>
-                            <div class="row">
-                                <div class="col-4"></div>
-                                <!-- <div class="col-4 infoText">No Of Seats : <span>{{cookingSchool.noOfSeats | number: '1.0-0'}}</span></div>
-                                <div class="col-1 verticalLine"></div>
-                                <div class="col-4 infoText">Duration: <span>{{cookingSchool.duration}}</span></div> -->
-                                <div class="col-5"><button mat-raised-button color="primary" (click) = "onViewDetails(cookingSchool)">View Details</button></div>
-                                <div class="col-3"></div>
+                            <div class="row my-4">
+                                <div class="col-12">
+                                  <button class="col-12" mat-raised-button color="primary" (click) = "onViewDetails(cookingSchool)">View Details</button>
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                              <div class="col-12">
+                                <button type="button" class="col-12" mat-raised-button color="accent" name="button" (click) = "openEditCookingSchoolDialog(cookingSchool)">Edit</button>
+                              </div>
                             </div>
                             <hr>
                         </mat-card-content>

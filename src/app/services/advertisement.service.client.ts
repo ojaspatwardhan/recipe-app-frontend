@@ -27,12 +27,12 @@ export class AdvertisementServiceClient {
         return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/").then((response) => response.json());
     }
 
-    findAdvertisementById(id){
+    findAdvertisementById(id) {
         return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/" + id).then((response) => response.json());
     }
 
     updateAdvertisement(advertisement){
-        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/"+advertisement._id,{
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/advertisement/" + advertisement._id,{
             method: "PUT",
             credentials: "include",
             body: JSON.stringify(advertisement),

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementServiceClient } from '../services/advertisement.service.client';
 import { Advertisement } from '../models/advertisement.model.client';
+import { CookieService } from 'ngx-cookie-service';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
@@ -12,13 +13,13 @@ export class CreateAdComponent implements OnInit {
 
   advertisement: Advertisement = new Advertisement();
 
-  constructor(private adService: AdvertisementServiceClient, public dialogRef: MatDialogRef<CreateAdComponent>) { }
+  constructor(private cookieService: CookieService, private adService: AdvertisementServiceClient, public dialogRef: MatDialogRef<CreateAdComponent>) { }
 
   ngOnInit() {
   }
 
   createAd(advertisement: Advertisement) {
-    // console.log(advertisement.name + " " + advertisement.image);
+    advertisement.createdBy = this.cookieService.get("username");
     this.adService.createAdvertisement(advertisement).then((advertisement) => {
       this.dialogRef.close();
     });

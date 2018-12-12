@@ -17,6 +17,7 @@ import { ViewCookingSchoolDetailsComponent } from './view-cooking-school-details
 import { UserCreatedRecipeComponent } from './user-created-recipe/user-created-recipe.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactUsAdminPanelComponent } from './contact-us-admin-panel/contact-us-admin-panel.component';
+import { EditAdComponent } from './edit-ad/edit-ad.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'contact-us-admin-panel', component: ContactUsAdminPanelComponent},
+  {path: 'edit-ad', component: EditAdComponent},
   {path: '**', component: HomePageComponent}
 ];
 

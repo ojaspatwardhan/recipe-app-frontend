@@ -38,7 +38,8 @@
     <!-- Template to render a different form when user has logged in -->
     <ng-template #loggedIn>
       <form class="form-inline my-2 my-lg-0">
-        <button mat-raised-button color="accent" class="mr-4" type="button" name="profile" *ngIf="userType == 'user' || userType == 'chef' || userType == 'admin' && cookieValue != ''" [routerLink]="['/profile']">Profile</button>
+        <span class="mr-4 my-2" style="color: white;"><h6>Logged in as, {{userType}}</h6></span>
+        <button mat-raised-button color="accent" class="mr-4" type="button" name="profile" *ngIf="cookieValue != ''" [routerLink]="['/profile']">Profile</button>
         <!-- Create Recipe dialog-->
         <button class="mr-4" *ngIf="userType == 'user' || userType == 'chef'" (click)="openCreateRecipeDialog()" type="button" mat-raised-button color="accent" name="recipe">Create Recipe</button>
         <!-- Login & Register dialogs -->

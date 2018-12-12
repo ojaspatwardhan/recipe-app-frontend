@@ -1,8 +1,11 @@
 import { CookingSchoolServiceClient } from './../services/cooking-school.service.client';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 import { UserServiceClient } from '../services/user.service.client';
+import { CookingSchool } from '../models/cooking-school.model.client';
+import { EditCookingSchoolDialogComponent } from '../edit-cooking-school-dialog/edit-cooking-school-dialog.component';
 
 @Component({
   selector: 'app-cooking-school',
@@ -21,7 +24,7 @@ export class CookingSchoolComponent implements OnInit {
   chefName: any;
   userNames: String[] = new Array();
 
-  constructor(private cookieService: CookieService, private cookingSchoolService: CookingSchoolServiceClient, private router: Router
+  constructor(public dialog: MatDialog, private cookieService: CookieService, private cookingSchoolService: CookingSchoolServiceClient, private router: Router
   , private userServiceClient: UserServiceClient) {
     this.isLoaded = false;
     this.chefLoaded = false;
@@ -84,4 +87,13 @@ onViewDetails(cookingSchool){
     this.router.navigate(['/cooking-school/create/', this.cookieService.get("userId")]);
   }
 
+  openEditCookingSchoolDialog(cookingSchool: CookingSchool): void {
+    const dialogRef = this.dialog.open(EditCookingSchoolDialogComponent, {
+      width: '500px',
+      height: '350px',
+      data: {
+        cookingSchool: cookingSchool
+      }
+    });
+  }
 }
