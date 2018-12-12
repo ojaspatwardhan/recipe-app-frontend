@@ -23,6 +23,7 @@ export class EditCookingSchoolDialogComponent implements OnInit {
     this.cookingSchoolService.updateCookingSchool(cookingSchool).then((cookingSchool) => {
       window.alert("Successfully updated");
       this.dialogRef.close();
+      window.location.reload();
     });
   }
 
