@@ -93,9 +93,9 @@ export class CookingSchoolServiceClient {
           }).then(response => response.json());
       }
 
-    addRecipeInCookingSchool(cookingSchoolId, recipeId){
+    addRecipeInCookingSchool(cookingSchoolId, recipeId) {
         console.log("Added recipe in cooking school" + "Cooking School Id " + cookingSchoolId + "Recipe School Id " + recipeId);
-        return fetch("http://localhost:4000/api/cooking-school/recipe", {
+        return fetch("http://localhost:4000/api/cooking-school/recipe/add", {
             method: "PUT",
               credentials: "include",
               body: JSON.stringify({
