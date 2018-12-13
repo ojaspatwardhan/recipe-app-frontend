@@ -1,5 +1,5 @@
 import { RecipeServiceClient } from './../services/recipe.service.client';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -87,6 +87,10 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       width: '500px',
       height: '350px'
     });
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Data: " + " " + data)
+    );
     // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
     //   response.forEach(element => {
     //     if(this.recipeIds.indexOf(element._id) === -1){
