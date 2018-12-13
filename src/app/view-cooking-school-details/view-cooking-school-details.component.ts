@@ -86,14 +86,13 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(
-      (data) => {
-        if(this.recipeIds.indexOf(data._id) === -1){
-          this.recipes.push(data);
-          this.recipeIds.push(data._id);
-          this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId, data._id);
+    dialogRef.afterClosed().subscribe((data) => {
+      if(this.recipeIds.indexOf(data._id) === -1) {
+        this.recipes.push(data);
+        this.recipeIds.push(data._id);
+        this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId, data._id);
       }
-    );
+    });
     // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
     //   response.forEach(element => {
     //     if(this.recipeIds.indexOf(element._id) === -1){
