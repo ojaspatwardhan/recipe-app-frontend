@@ -29,7 +29,7 @@
   <h3> Recipes you will teach at this school.</h3>
 <div class="row card-group">
     <div class="col-4"  *ngFor="let recipe of recipes; let i = index">
-        <mat-card class="example-card" [routerLink] = "['/recipe',recipe.id]">
+        <mat-card class="example-card" [routerLink] = "['/user-recipe',recipe._id]">
             <img mat-card-image src = {{recipe.image}} alt="Photo of a recipe" />
             <mat-card-content>
               <h6 class="foodTitle">{{recipe.title}}</h6>
