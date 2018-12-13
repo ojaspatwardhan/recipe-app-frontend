@@ -90,13 +90,14 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((data) => {
+      if(typeof data !== 'undefined'){
       if(this.recipeIds.indexOf(data._id) === -1) {
         this.recipes.push(data);
         this.recipeIds.push(data._id);
         console.log(this.recipes + " " + "Recipes");
         console.log(this.recipeIds + " " + "Recipe Id's");
         this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId, data._id);
-      }
+      }}
     });
     // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
     //   response.forEach(element => {
@@ -133,11 +134,16 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
 
   dialogRef.afterClosed().subscribe(
     (data) => {
-      console.log("Recipes: " + data.recipes + " Ids " + data.recipeIds);
-      this.recipes = data.recipes;
-      this.recipeIds = data.recipeIds;
-      console.log(data.id);
-      this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,data.id);
+      if(typeof data !== 'undefined'){
+        console.log("Recipes: " + data.recipes + " Ids " + data.recipeIds);
+        this.recipes = data.recipes;
+        this.recipeIds = data.recipeIds;
+        console.log(data.id);
+        if(this.recipes.length === 0){
+          this.isLoaded = false;
+        }
+        this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,data.id);
+      }
     }
   );
 }
