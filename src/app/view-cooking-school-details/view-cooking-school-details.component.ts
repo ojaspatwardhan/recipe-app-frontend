@@ -64,11 +64,6 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       this.isLoaded = true;
   }
 
-// ngAfterViewInit() {
-//   this.message = this.addRecipeDialog.message;
-//   console.log(this.message);
-// }
-
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
     this.cookingSchoolService.unEnrollUserInCookingSchool(this.cookingSchool, userId).
@@ -87,8 +82,8 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   onAddRecipe() {
     // console.log(this.cookieService.get("userId"));
     const dialogRef = this.dialog.open(AddRecipeDialogComponent, {
-      width: '500px',
-      height: '350px',
+      width: '600px',
+      height: '450px',
       data: {
         userId: this.cookieService.get("userId")
       }
