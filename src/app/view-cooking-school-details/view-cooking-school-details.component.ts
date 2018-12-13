@@ -25,13 +25,6 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   recipeIds: any[] = new Array();
   message: string;
 
-  @ViewChild(AddRecipeDialogComponent) addRecipeDialog;
-
-  ngAfterViewInit() {
-    this.message = this.addRecipeDialog.message;
-    console.log(this.message);
-  }
-
   constructor(public dialog: MatDialog, private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
     private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient,
   private userRecipeService: RecipeServiceClient, private cookieService: CookieService)
@@ -67,6 +60,11 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       this.isLoaded = true;
   });
 }
+
+// ngAfterViewInit() {
+//   this.message = this.addRecipeDialog.message;
+//   console.log(this.message);
+// }
 
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
