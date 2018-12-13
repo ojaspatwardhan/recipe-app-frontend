@@ -45,11 +45,11 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       this.cookingSchool = cookingSchool;
     });
 
-    this.recipeService.getNumberOfRecipe(5).then((result) => {
-      result.recipes.forEach(ele => {
-        this.recipes.push(ele);
-        this.recipeIds.push(ele.id);
-      });
+    // this.recipeService.getNumberOfRecipe(5).then((result) => {
+    //   result.recipes.forEach(ele => {
+    //     this.recipes.push(ele);
+    //     this.recipeIds.push(ele.id);
+    //   });
       // this.recipes = result.recipes;
       this.cookingSchoolService.getRecipeFromCookingSchool(this.cookingSchoolId).then((re) => {
         console.log(re);
@@ -126,19 +126,24 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   //       }
   //   });
   // });
+  console.log(this.recipeIds);
   const dialogRef = this.dialog.open(DeleteRecipeDialogComponent, {
     width: '700px',
     height: '500px',
     data: {
       userId: this.cookieService.get("userId"),
       recipes: this.recipes,
-      recipeId: this.recipeIds
+      recipeIds: this.recipeIds
     }
   });
 
   dialogRef.afterClosed().subscribe(
     (data) => {
       console.log("Recipes: " + data.recipes + " Ids " + data.recipeIds);
+      this.recipes = data.recipes;
+      this.recipeIds = data.recipeIds;
+      console.log(data.id);
+      this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,data.id);
     }
   );
 }

@@ -7,12 +7,12 @@ export class ContactUsServiceClient {
 
 
       findQueryByEmail(email) {
-        return fetch("http://localhost:4000/api/contact-us/" + email).then((response) => response.json());
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/contact-us/" + email).then((response) => response.json());
       }
 
       createQuery(query) {
         console.log(query);
-        return fetch("http://localhost:4000/api/contact-us", {
+        return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/contact-us", {
           method: "POST",
           body: JSON.stringify(query),
           headers: {
@@ -24,11 +24,11 @@ export class ContactUsServiceClient {
       }
 
       findAllQuery() {
-          return fetch("http://localhost:4000/api/contact-us/").then((response) => response.json());
+          return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/contact-us/").then((response) => response.json());
       }
 
       findQueryById(id){
-          return fetch("http://localhost:4000/api/contact-us/" + id).then((response) => response.json());
+          return fetch("https://dbms-recipe-app-backend.herokuapp.com/api/contact-us/" + id).then((response) => response.json());
       }
 
 }
