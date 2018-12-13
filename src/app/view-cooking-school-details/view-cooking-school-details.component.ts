@@ -122,8 +122,8 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   //   });
   // });
   const dialogRef = this.dialog.open(DeleteRecipeDialogComponent, {
-    width: '500px',
-    height: '350px',
+    width: '700px',
+    height: '500px',
     data: {
       userId: this.cookieService.get("userId"),
       recipes: this.recipes,
@@ -133,7 +133,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
 
   dialogRef.afterClosed().subscribe(
     (data) => {
-      console.log("Delete working");
+      console.log("Recipes: " + data.recipes + " Ids " + data.recipeIds);
     }
   );
 }

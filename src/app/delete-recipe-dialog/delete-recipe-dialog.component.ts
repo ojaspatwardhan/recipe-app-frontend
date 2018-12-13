@@ -23,6 +23,14 @@ export class DeleteRecipeDialogComponent implements OnInit {
   }
 
   delete(recipe: Recipe) {
-    this.dialogRef.close(recipe);
+    console.log("In delete recipe dialog box "+ recipe);
+    if(this.recipeIds.indexOf(recipe._id) !== -1){
+        this.recipes.splice(this.recipes.indexOf(recipe),1);
+        this.recipeIds.splice(this.recipeIds.indexOf(recipe._id),1);
+    }
+    this.dialogRef.close({
+      recipes: this.recipes,
+      recipeIds: this.recipeIds
+    });
   }
 }
