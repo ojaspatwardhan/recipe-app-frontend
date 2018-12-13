@@ -8,6 +8,7 @@ import { SpoonacularServiceClient } from '../services/spoonacular.service.client
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddRecipeDialogComponent } from '../add-recipe-dialog/add-recipe-dialog.component';
+import { DeleteRecipeDialogComponent } from '../delete-recipe-dialog/delete-recipe-dialog.component';
 
 @Component({
   selector: 'app-view-cooking-school-details',
@@ -44,22 +45,30 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       this.cookingSchool = cookingSchool;
     });
 
-    this.recipeService.getNumberOfRecipe(5).then((result) => {
-      result.recipes.forEach(ele => {
-        this.recipes.push(ele);
-        this.recipeIds.push(ele.id);
-      });
+    // this.recipeService.getNumberOfRecipe(5).then((result) => {
+    //   result.recipes.forEach(ele => {
+    //     this.recipes.push(ele);
+    //     this.recipeIds.push(ele.id);
+    //   });
       // this.recipes = result.recipes;
       this.cookingSchoolService.getRecipeFromCookingSchool(this.cookingSchoolId).then((re) => {
         console.log(re);
         re.recipes.forEach(element => {
-          this.recipes.push(element);
-          this.recipeIds.push(element._id);
+          this.userRecipeService.findRecipeById(element).then((r) => {
+            console.log("In ngoninit of view cooking recipe detail" + r);
+            this.recipes.push(r);
+            this.recipeIds.push(element);
+          });
         });
       });
       this.isLoaded = true;
   });
 }
+
+// ngAfterViewInit() {
+//   this.message = this.addRecipeDialog.message;
+//   console.log(this.message);
+// }
 
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
@@ -107,15 +116,35 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
-      response.forEach(element => {
-        if(this.recipeIds.indexOf(element._id) !== -1){
-          this.recipes.splice(this.recipes.indexOf(element),1);
-          this.recipeIds.splice(this.recipeIds.indexOf(element._id),1);
-          this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
-          console.log(this.recipes);
-        }
-    });
+  //   this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
+  //     response.forEach(element => {
+  //       if(this.recipeIds.indexOf(element._id) !== -1){
+  //         this.recipes.splice(this.recipes.indexOf(element),1);
+  //         this.recipeIds.splice(this.recipeIds.indexOf(element._id),1);
+  //         this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
+  //         console.log(this.recipes);
+  //       }
+  //   });
+  // });
+  console.log(this.recipeIds);
+  const dialogRef = this.dialog.open(DeleteRecipeDialogComponent, {
+    width: '700px',
+    height: '500px',
+    data: {
+      userId: this.cookieService.get("userId"),
+      recipes: this.recipes,
+      recipeIds: this.recipeIds
+    }
   });
+
+  dialogRef.afterClosed().subscribe(
+    (data) => {
+      console.log("Recipes: " + data.recipes + " Ids " + data.recipeIds);
+      this.recipes = data.recipes;
+      this.recipeIds = data.recipeIds;
+      console.log(data.id);
+      this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,data.id);
+    }
+  );
 }
 }

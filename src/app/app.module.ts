@@ -68,6 +68,7 @@ import { EditAdComponent } from './edit-ad/edit-ad.component';
 import { EditAdDialogComponent } from './edit-ad-dialog/edit-ad-dialog.component';
 import { EditCookingSchoolDialogComponent } from './edit-cooking-school-dialog/edit-cooking-school-dialog.component';
 import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
+import { DeleteRecipeDialogComponent } from './delete-recipe-dialog/delete-recipe-dialog.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.
     EditAdComponent,
     EditAdDialogComponent,
     EditCookingSchoolDialogComponent,
-    AddRecipeDialogComponent
+    AddRecipeDialogComponent,
+    DeleteRecipeDialogComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -115,7 +117,8 @@ import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.
     CreateAdComponent,
     EditAdDialogComponent,
     EditCookingSchoolDialogComponent,
-    AddRecipeDialogComponent
+    AddRecipeDialogComponent,
+    DeleteRecipeDialogComponent
   ],
   imports: [
     BrowserModule,
