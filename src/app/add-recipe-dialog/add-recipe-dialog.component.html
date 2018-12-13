@@ -1,4 +1,8 @@
-<p *ngFor="let recipe of recipes">
-  add-recipe-dialog works!
-  <button type="button" mat-raised-button color="primary" (click)="save(recipe)" name="button">Save</button>
-</p>
+<div class="container-fluid">
+  <div class="row" *ngFor="let recipe of recipes">
+    <div class="col-6">
+      <h4>{{recipe.title}}</h4>
+    </div>
+    <button type="button" class="col-6" mat-raised-button color="accent" (click)="save(recipe)" name="button">Add</button>
+  </div>
+</div>
