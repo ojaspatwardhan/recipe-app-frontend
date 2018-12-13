@@ -80,11 +80,16 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
     // console.log(this.cookieService.get("userId"));
     const dialogRef = this.dialog.open(AddRecipeDialogComponent, {
       width: '500px',
-      height: '350px'
+      height: '350px',
+      data: {
+        userId: this.cookieService.get("userId")
+      }
     });
 
     dialogRef.afterClosed().subscribe(
-      data => console.log("Data: " + " " + data)
+      (data) => {
+        console.log("working");
+      }
     );
     // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
     //   response.forEach(element => {
