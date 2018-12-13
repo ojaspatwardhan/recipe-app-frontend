@@ -62,13 +62,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
         });
       });
       this.isLoaded = true;
-  });
-}
-
-// ngAfterViewInit() {
-//   this.message = this.addRecipeDialog.message;
-//   console.log(this.message);
-// }
+  }
 
   onUnEnroll(userId) {
     this.cookingSchool.enrolledUser = this.cookingSchool.enrolledUser.splice(this.cookingSchool.enrolledUser.indexOf(userId), 1);
