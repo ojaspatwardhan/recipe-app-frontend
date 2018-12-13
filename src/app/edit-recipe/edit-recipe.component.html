@@ -1,4 +1,7 @@
 <div class="container">
+  <header>
+    <app-nav-bar></app-nav-bar>
+  </header>
 <div class="container-fluid editForm" *ngIf = "isLoaded">
     <div class="row">
       <div class="col-12">
@@ -41,9 +44,9 @@
       </div>
     </div>
     <div class="row">
-      <button mat-raised-button type="button" class="col-12 my-4" color="warn" 
+      <button mat-raised-button type="button" class="col-12 my-4" color="warn"
       (click)="editRecipe(recipe)">Edit</button>
     </div>
   </div>
+  <app-footer></app-footer>
   </div>
-  
