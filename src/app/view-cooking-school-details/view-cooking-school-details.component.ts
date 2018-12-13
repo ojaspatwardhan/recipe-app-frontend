@@ -8,6 +8,7 @@ import { SpoonacularServiceClient } from '../services/spoonacular.service.client
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddRecipeDialogComponent } from '../add-recipe-dialog/add-recipe-dialog.component';
+import { DeleteRecipeDialogComponent } from '../delete-recipe-dialog/delete-recipe-dialog.component';
 
 @Component({
   selector: 'app-view-cooking-school-details',
@@ -108,15 +109,30 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
-      response.forEach(element => {
-        if(this.recipeIds.indexOf(element._id) !== -1){
-          this.recipes.splice(this.recipes.indexOf(element),1);
-          this.recipeIds.splice(this.recipeIds.indexOf(element._id),1);
-          this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
-          console.log(this.recipes);
-        }
-    });
+  //   this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
+  //     response.forEach(element => {
+  //       if(this.recipeIds.indexOf(element._id) !== -1){
+  //         this.recipes.splice(this.recipes.indexOf(element),1);
+  //         this.recipeIds.splice(this.recipeIds.indexOf(element._id),1);
+  //         this.cookingSchoolService.removeRecipeFromCookingSchool(this.cookingSchoolId,element._id);
+  //         console.log(this.recipes);
+  //       }
+  //   });
+  // });
+  const dialogRef = this.dialog.open(DeleteRecipeDialogComponent, {
+    width: '500px',
+    height: '350px',
+    data: {
+      userId: this.cookieService.get("userId"),
+      recipes: this.recipes,
+      recipeId: this.recipeIds
+    }
   });
+
+  dialogRef.afterClosed().subscribe(
+    (data) => {
+      console.log("Delete working");
+    }
+  );
 }
 }
