@@ -61,7 +61,10 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
           });
         });
       });
-      this.isLoaded = true;
+      if(this.recipes.length !== 0){
+        this.isLoaded = true;
+      }
+      // this.isLoaded = true;
   }
 
   onUnEnroll(userId) {
