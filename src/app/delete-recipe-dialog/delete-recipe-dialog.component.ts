@@ -15,15 +15,18 @@ export class DeleteRecipeDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DeleteRecipeDialogComponent>, 
   private recipeService: RecipeServiceClient) {
     this.userId = this.data.userId;
-    this.recipes = this.data.recipes;
-    this.recipeIds = this.data.recipeIds;
   }
 
   ngOnInit() {
+    this.recipes = this.data.recipes;
+    console.log(this.data.recipeIds);
+    this.recipeIds = this.data.recipeIds;
+    console.log(this.recipeIds);
+
   }
 
   delete(recipe: Recipe) {
-    console.log("In delete recipe dialog box "+ recipe);
+    console.log("In delete recipe dialog box "+ recipe.title);
     if(this.recipeIds.indexOf(recipe._id) !== -1){
         this.recipes.splice(this.recipes.indexOf(recipe),1);
         this.recipeIds.splice(this.recipeIds.indexOf(recipe._id),1);

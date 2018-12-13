@@ -54,8 +54,11 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       this.cookingSchoolService.getRecipeFromCookingSchool(this.cookingSchoolId).then((re) => {
         console.log(re);
         re.recipes.forEach(element => {
-          this.recipes.push(element);
-          this.recipeIds.push(element._id);
+          this.userRecipeService.findRecipeById(element).then((r) => {
+            console.log("In ngoninit of view cooking recipe detail" + r);
+            this.recipes.push(r);
+            this.recipeIds.push(element);
+          });
         });
       });
       this.isLoaded = true;
