@@ -50,7 +50,9 @@ export class ProfilePageComponent implements OnInit {
       this.enrolledSchool = user.enrolledSchool;
       this.enrolledSchool.forEach((element) => {
         this.cookingSchoolService.findCookingSchoolById(element).then((school) => {
-          this.cookingSchools.push(school.name);
+          if (this.cookingSchools.indexOf(school.name) === -1) {
+            this.cookingSchools.push(school.name);
+          }
         });
       });
       const dialogRef = this.dialog.open(EnrolledSchoolsComponent, {
