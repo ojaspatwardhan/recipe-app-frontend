@@ -1,11 +1,13 @@
 import { RecipeServiceClient } from './../services/recipe.service.client';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CookingSchoolServiceClient } from '../services/cooking-school.service.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookingSchool } from '../models/cooking-school.model.client';
 import { SpoonacularServiceClient } from '../services/spoonacular.service.client';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { AddRecipeDialogComponent } from '../add-recipe-dialog/add-recipe-dialog.component';
 
 @Component({
   selector: 'app-view-cooking-school-details',
@@ -21,8 +23,16 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   recipes: any[] = new Array();
   isLoaded: boolean;
   recipeIds: any[] = new Array();
+  message: string;
 
-  constructor(private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
+  @ViewChild(AddRecipeDialogComponent) addRecipeDialog;
+
+  ngAfterViewInit() {
+    this.message = this.addRecipeDialog.message;
+    console.log(this.message);
+  }
+
+  constructor(public dialog: MatDialog, private userService: UserServiceClient, private cookingSchoolService: CookingSchoolServiceClient,
     private router: Router, private route: ActivatedRoute, private recipeService: SpoonacularServiceClient,
   private userRecipeService: RecipeServiceClient, private cookieService: CookieService)
   {
@@ -74,16 +84,20 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
   }
 
   onAddRecipe() {
-    console.log(this.cookieService.get("userId"));
-    this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
-      response.forEach(element => {
-        if(this.recipeIds.indexOf(element._id) === -1){
-          this.recipes.push(element);
-          this.recipeIds.push(element._id);
-          this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId,element._id);
-        }
-      });
+    // console.log(this.cookieService.get("userId"));
+    const dialogRef = this.dialog.open(AddRecipeDialogComponent, {
+      width: '500px',
+      height: '350px'
     });
+    // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
+    //   response.forEach(element => {
+    //     if(this.recipeIds.indexOf(element._id) === -1){
+    //       this.recipes.push(element);
+    //       this.recipeIds.push(element._id);
+    //       this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId,element._id);
+    //     }
+    //   });
+    // });
   }
 
   onDeleteRecipe() {

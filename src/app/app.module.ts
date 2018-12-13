@@ -67,6 +67,7 @@ import { ContactUsAdminPanelComponent } from './contact-us-admin-panel/contact-u
 import { EditAdComponent } from './edit-ad/edit-ad.component';
 import { EditAdDialogComponent } from './edit-ad-dialog/edit-ad-dialog.component';
 import { EditCookingSchoolDialogComponent } from './edit-cooking-school-dialog/edit-cooking-school-dialog.component';
+import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { EditCookingSchoolDialogComponent } from './edit-cooking-school-dialog/e
     ContactUsAdminPanelComponent,
     EditAdComponent,
     EditAdDialogComponent,
-    EditCookingSchoolDialogComponent
+    EditCookingSchoolDialogComponent,
+    AddRecipeDialogComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -112,7 +114,8 @@ import { EditCookingSchoolDialogComponent } from './edit-cooking-school-dialog/e
     EnrolledSchoolsComponent,
     CreateAdComponent,
     EditAdDialogComponent,
-    EditCookingSchoolDialogComponent
+    EditCookingSchoolDialogComponent,
+    AddRecipeDialogComponent
   ],
   imports: [
     BrowserModule,
