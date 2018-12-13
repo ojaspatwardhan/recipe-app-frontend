@@ -1,4 +1,4 @@
-<p>
+<p *ngFor="let recipe of recipes">
   add-recipe-dialog works!
+  <button type="button" mat-raised-button color="primary" (click)="save(recipe)" name="button">Save</button>
 </p>
-<button type="button" mat-raised-button color="primary" (click)="save()" name="button">Save</button>
