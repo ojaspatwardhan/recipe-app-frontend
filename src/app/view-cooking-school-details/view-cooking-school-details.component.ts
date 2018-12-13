@@ -62,8 +62,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
         });
       });
       this.isLoaded = true;
-  });
-}
+  }
 
 // ngAfterViewInit() {
 //   this.message = this.addRecipeDialog.message;
