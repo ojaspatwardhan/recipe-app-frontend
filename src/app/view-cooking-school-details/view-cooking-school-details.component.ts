@@ -58,12 +58,13 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
             console.log("In ngoninit of view cooking recipe detail" + r);
             this.recipes.push(r);
             this.recipeIds.push(element);
+            this.isLoaded = true;
           });
         });
       });
-      if(this.recipes.length !== 0){
-        this.isLoaded = true;
-      }
+      // if(this.recipes.length !== 0){
+      //   this.isLoaded = true;
+      // }
       // this.isLoaded = true;
   }
 
