@@ -88,7 +88,10 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       (data) => {
-        console.log("working");
+        if(this.recipeIds.indexOf(data._id) === -1){
+          this.recipes.push(data);
+          this.recipeIds.push(data._id);
+          this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId, data._id);
       }
     );
     // this.userRecipeService.findUserRecipe(this.cookieService.get("userId")).then((response) => {
