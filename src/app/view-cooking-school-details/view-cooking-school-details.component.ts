@@ -98,6 +98,7 @@ export class ViewCookingSchoolDetailsComponent implements OnInit {
       if(this.recipeIds.indexOf(data._id) === -1) {
         this.recipes.push(data);
         this.recipeIds.push(data._id);
+        this.isLoaded = true;
         console.log(this.recipes + " " + "Recipes");
         console.log(this.recipeIds + " " + "Recipe Id's");
         this.cookingSchoolService.addRecipeInCookingSchool(this.cookingSchoolId, data._id);
